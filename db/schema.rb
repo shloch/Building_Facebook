@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_01_140449) do
+ActiveRecord::Schema.define(version: 2019_07_01_165119) do
 
   create_table "friendships", force: :cascade do |t|
     t.text "status", default: "pending"
@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 2019_07_01_140449) do
 
   create_table "post_comments", force: :cascade do |t|
     t.text "comment_text"
-    t.datetime "comment_date"
     t.integer "post_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
@@ -44,7 +43,6 @@ ActiveRecord::Schema.define(version: 2019_07_01_140449) do
 
   create_table "posts", force: :cascade do |t|
     t.text "post_text"
-    t.datetime "date"
     t.integer "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

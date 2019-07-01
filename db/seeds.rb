@@ -8,19 +8,21 @@
 
 
 
-25.times do |n|
+15.times do |n|
   name  = Faker::Name.name
   email = Faker::Internet.email
   password = "password"
   User.create!(name:  name,
                email: email,
-               password_digest: password)
+               password: password,
+               password_confirmation: password,)
+  end
 
 
-users = User.order(:created_at).take(5)
-25.times do
-  blog_text = Faker::Lorem.sentence(5)
-  users.each { |user| user.microposts.create!(content: blog_text) }
-end
+  users = User.order(:created_at).take(5)
 
-end
+  5.times do
+    blog_text = Faker::Lorem.sentence(5)
+    date =  Faker::Time.between(2.days.ago, Time.now)
+    users.each { |user| user.posts.create!(post_text: blog_text, created_at: date) }
+  end

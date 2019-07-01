@@ -10,7 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_01_134843) do
+ActiveRecord::Schema.define(version: 2019_07_01_140449) do
+
+  create_table "friendships", force: :cascade do |t|
+    t.text "status", default: "pending"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "inviting_id"
+    t.integer "invited_id"
+    t.index ["invited_id"], name: "index_friendships_on_invited_id"
+    t.index ["inviting_id"], name: "index_friendships_on_inviting_id"
+  end
+
+  create_table "like_posts", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_like_posts_on_post_id"
+    t.index ["user_id"], name: "index_like_posts_on_user_id"
+  end
+
+  create_table "post_comments", force: :cascade do |t|
+    t.text "comment_text"
+    t.datetime "comment_date"
+    t.integer "post_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_post_comments_on_post_id"
+    t.index ["user_id"], name: "index_post_comments_on_user_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.text "post_text"
+    t.datetime "date"
+    t.integer "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_posts_on_author_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
     belongs_to :author, class_name: "User" 
-    has_many :post_comments
-    has_many :like_posts 
+    has_many :post_comments, :dependent => :destroy
+    has_many :like_posts, :dependent => :destroy
 end

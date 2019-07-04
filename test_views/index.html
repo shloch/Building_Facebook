@@ -10,44 +10,133 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#"
-            >Home <span class="sr-only">(current)</span></a
-          >
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input
-          class="form-control mr-sm-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-          Search
-        </button>
-      </form>
-    </div>
-  </nav>
   <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light nav-color">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto"></ul>
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-5">
+              <label for="loginEmail">Email or Phone</label>
+              <input
+                class="form-control form-control-sm mr-sm-2"
+                type="text"
+                id="loginEmail"
+              />
+            </div>
+            <div class="form-group col-md-5">
+              <label for="loginPassword">Password</label>
+              <input
+                class="form-control form-control-sm mr-sm-2"
+                type="password"
+                id="loginPassword"
+              />
+            </div>
+            <div class="form-group button-group">
+              <button class="btn btn-primary my-2 my-sm-0 btn-sm" type="submit">
+                Login
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="d-flex justify-content-end row">
+        <div class="col-xl-5 col-md-5">
+          <form class="signUp">
+            <h1>Create a new account</h1>
+            <h5>Its a free and will always be free</h5>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="inputEmail4"
+                  placeholder="Email"
+                />
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">Username</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="username"
+                  placeholder="Username"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword4">Password</label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputPassword4"
+                placeholder="Password"
+              />
+            </div>
+            <div class="form-group row">
+              <label for="example-date-input" class="col-2 col-form-label"
+                >Date</label
+              >
+              <div class="col-10">
+                <input
+                  class="form-control"
+                  type="date"
+                  value="2011-08-19"
+                  id="example-date-input"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-check-inline">
+                <label class="form-check-label" for="check1">
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    id="check1"
+                    name="vehicle1"
+                    value="something"
+                  />Female
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label class="form-check-label" for="check2">
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    id="check2"
+                    name="vehicle2"
+                    value="something"
+                  />Male
+                </label>
+              </div>
+            </div>
+            <div class="form-group"></div>
+            <button type="submit" class="btn btn-success col-md-5">
+              Sign up
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

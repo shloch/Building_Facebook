@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light nav-color">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <form class="form-inline my-2 my-lg-0 col-xl-5">
+          <div class="form-group has-search col-xl-12">
+            <span class="fa fa-search form-control-feedback"></span>
+            <input
+              type="text"
+              class="form-control form-control-sm col-xl-12"
+              placeholder="Search"
+            />
+          </div>
+        </form>
+        <ul class="navbar-nav mr-auto ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">
+              <i class="fa fa-user-circle" aria-hidden="true"></i>
+              User <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"
+              >Create <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"
+              ><i class="fa fa-users" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"
+              ><i class="fa fa-comments" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"
+              ><i class="fa fa-bell" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa fa-question-circle" aria-hidden="true"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="row r-con">
+      <div class="col-xl-2 col-lg-2">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa fa-user-circle" aria-hidden="true"></i>
+              Username</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa fa-comments" aria-hidden="true"></i>
+              Messaging</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa fa-video-camera" aria-hidden="true"></i>
+              Watch</a
+            >
+          </li>
+          <h6 class="ml-4">Shortcuts</h6>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-xl-7 col-lg-7">
+        <div class="card col-xl-12 col-lg-12 col-md-12">
+          <div class="card-header">Create Post</div>
+          <div class="card-body">
+            <form class="col-xl-12">
+              <div class="form-row col-xl-12">
+                <div class="form-group col-xl-3">
+                  <div class="user-circle"></div>
+                </div>
+                <div class="form-group col-xl-9">
+                  <textarea
+                    class="form-control"
+                    id="exampleFormControlTextarea1"
+                    rows="3"
+                  ></textarea>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="card-footer">
+            <button type="button" class="btn btn-light">
+              <i class="fa fa-picture-o" aria-hidden="true"></i> Photo / Video
+            </button>
+            <button type="button" class="btn btn-light">
+              <i class="fa fa-users" aria-hidden="true"></i>
+              Tag a Friend
+            </button>
+            <button type="button" class="btn btn-light">
+              <i class="fa fa-smile-o" aria-hidden="true"></i>
+              Feeling / Activity
+            </button>
+          </div>
+        </div>
+        <div class="card col-xl-12 col-lg-12 col-md-12">
+          <div class="card-header">Create Post</div>
+          <div class="card-body">
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut,
+              iusto. Distinctio maiores a odio perspiciatis voluptatibus laborum
+              ullam ratione aut dolor pariatur quasi iure aliquam tempora,
+              deleniti facere veritatis eos?
+            </p>
+          </div>
+          <div class="card-footer">
+            <button type="button" class="btn btn-light">
+              <i class="fa fa-thumbs-up" aria-hidden="true"></i> Like
+            </button>
+            <button
+              type="button"
+              class="btn btn-light"
+              data-toggle="collapse"
+              data-target="#collapseExample"
+              aria-expanded="false"
+              aria-controls="collapseExample"
+            >
+              <i class="fa fa-comments" aria-hidden="true"></i>
+              Comments
+            </button>
+            <div class="collapse" id="collapseExample">
+              <div class="card card-body">
+                <div class="comment-row row">
+                  <div class="col-xl-2 d-flex justify-content-center">
+                    <div class="user-circle-sm"></div>
+                  </div>
+                  <div class="col-xl-10">
+                    <p>
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life
+                        accusamus terry richardson ad squid. Nihil anim keffiyeh
+                        helvetica, craft beer labore wes anderson cred nesciunt
+                        sapiente ea proident.</p>
+                        <button type="button" class="btn btn-light">
+                            <i class="fa fa-thumbs-up" aria-hidden="true"></i> Like
+                          </button>
+                          <button
+                            type="button"
+                            class="btn btn-light"
+                          >  
+                          <i class="fa fa-comments" aria-hidden="true"></i>
+                          Comments
+                        </button>
+                  </div>
+                </div>
+                <hr>
+                <div class="comment-row row">
+                    <div class="col-xl-2 d-flex justify-content-center">
+                        <div class="user-circle-sm"></div>
+                      </div>
+                    <div class="col-xl-10">
+                      <form action="">
+                          <div class="input-group mb-3">
+                              <input type="text" class="form-control" placeholder="Your comment" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                              <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button">Submit</button>
+                              </div>
+                            </div>
+                      </form>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-3"></div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -270,6 +270,7 @@ Devise.setup do |config|
   # config.warden do |manager|
   #   manager.intercept_401 = false
   #   manager.default_strategies(scope: :user).unshift :some_external_strategy
+  #     manager.failure_app = MyFailureApp
   # end
 
   # ==> Mountable engine configurations

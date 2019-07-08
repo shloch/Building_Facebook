@@ -19,80 +19,19 @@
       </head>
       <body>
         <%= render 'layouts/nav' %>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
+        <% flash.each do |message_type, message| %>
+          <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <% end %>
         <div class="row r-con">
           <div class="col-xl-2 col-lg-2">
             <%= render 'layouts/left_sidemenu' %>
           </div>
           <div class="col-xl-7 col-lg-7">
             <%= render 'layouts/posting_block' %>
-            <div class="card col-xl-12 col-lg-12 col-md-12">
-              <div class="card-header">Create Post</div>
-              <div class="card-body">
-                <%= yield %>
-              </div>
-              <div class="card-footer">
-                <button type="button" class="btn btn-light">
-                  <i class="fa fa-thumbs-up" aria-hidden="true"></i> Like
-                </button>
-                <button
-              type="button"
-              class="btn btn-light"
-              data-toggle="collapse"
-              data-target="#collapseExample"
-              aria-expanded="false"
-              aria-controls="collapseExample"
-            >
-                  <i class="fa fa-comments" aria-hidden="true"></i>
-                  Comments
-                </button>
-                <div class="collapse" id="collapseExample">
-                  <div class="card card-body">
-                    <div class="comment-row row">
-                      <div class="col-xl-2 d-flex justify-content-center">
-                        <div class="user-circle-sm"></div>
-                      </div>
-                      <div class="col-xl-10">
-                        <p>
-                          Anim pariatur cliche reprehenderit, enim eiusmod high life
-                          accusamus terry richardson ad squid. Nihil anim keffiyeh
-                          helvetica, craft beer labore wes anderson cred nesciunt
-                          sapiente ea proident.</p>
-                        <button type="button" class="btn btn-light">
-                          <i class="fa fa-thumbs-up" aria-hidden="true"></i> Like
-                        </button>
-                        <button
-                            type="button"
-                            class="btn btn-light"
-                          >
-                          <i class="fa fa-comments" aria-hidden="true"></i>
-                          Comments
-                        </button>
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="comment-row row">
-                      <div class="col-xl-2 d-flex justify-content-center">
-                        <div class="user-circle-sm"></div>
-                      </div>
-                      <div class="col-xl-10">
-                        <form action="">
-                          <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Your comment" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                              <button class="btn btn-outline-secondary" type="button">Submit</button>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <%= yield %>
           </div>
-          <div class="col-xl-3 col-lg-3"></div>
         </div>
-      </body>
-    </html>
+        <div class="col-xl-3 col-lg-3"></div>
+      </div>
+    </body>
+  </html>

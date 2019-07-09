@@ -1,4 +1,4 @@
-<% @you_and_friends_posts.each do |p| %>
+<% @you_and_friends_posts.each_with_index do |p,index| %>
   <div class="card col-xl-12 col-lg-12 col-md-12">
     <div class="card-header"> <strong><%= p.author.name%> </strong>, <%= p.created_at%>  </div>
     <div class="card-body">
@@ -14,14 +14,14 @@
               type="button"
               class="btn btn-light"
               data-toggle="collapse"
-              data-target="#collapseExample"
+              data-target="#collapse<%= index %>"
               aria-expanded="false"
-              aria-controls="collapseExample"
+              aria-controls="collapse<%= index %>"
             >
         <i class="fa fa-comments" aria-hidden="true"></i>
         Comments
       </button>
-      <div class="collapse" id="collapseExample">
+      <div class="collapse" id="collapse<%= index %>">
         <div class="card card-body">
           <div class="comment-row row">
             <div class="col-xl-2 d-flex justify-content-center">

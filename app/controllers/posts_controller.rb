@@ -16,10 +16,27 @@ class PostsController < ApplicationController
   def new
   end
 
+  def show
+
+  end
+
   def edit
   end
 
   def update
+  end
+
+  def add_post_like
+    
+    if LikePost.create(post_id: params[:post_id], user_id: params[:user_id])
+      flash[:info] = "Post succesfully liked"
+      redirect_to root_url
+    else
+      flash[:info] = "Like unsuccessful"
+      redirect_to root_url
+
+    end
+
   end
 
   private

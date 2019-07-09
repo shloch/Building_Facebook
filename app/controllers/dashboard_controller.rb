@@ -8,7 +8,7 @@ class DashboardController < ApplicationController
         
         else
             @post = Post.new 
-            @you_and_friends_posts = Post.all.order(id: :desc)
+            @you_and_friends_posts = Post.all.includes(:author).order(id: :desc)
         end
     end
 end

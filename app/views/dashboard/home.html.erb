@@ -5,6 +5,10 @@
       <p>
         <%= p.post_text%>
       </p>
+      <hr>
+      <span>
+        Likes : <%= p.like_total %>
+      </span>
     </div>
     <div class="card-footer">
       <%= link_to controller: 'posts', action: 'add_post_like', post_id: p.id, user_id: p.author_id  do %>

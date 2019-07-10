@@ -41,8 +41,86 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#"
-              ><i class="fa fa-users" aria-hidden="true"></i>
+              ><%= link_to('Logout', destroy_user_session_path, method: :delete) %> <span class="sr-only">(current)</span></a
+            >
+        </li>
+        <li class="nav-item dropdown">
+          <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+            <i class="fa fa-users" aria-hidden="true"></i>
           </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <div class="row friend-title-con">
+              <div class="col-xl-6">
+                <p class="text-f text-left">Friend Requests</p>
+              </div>
+              <div class="col-xl-6">
+                <p class="text-f text-right">
+                  <a href="#">
+                    Hello test
+                  </a>
+                  |
+                  <a href="#">
+                    Settings
+                  </a>
+                </p>
+              </div>
+            </div>
+            <div class="friend-con"></div>
+            <div class="row friend-title-con">
+              <div class="col-xl-6">
+                <p class="text-f text-left">Requests Accepted</p>
+              </div>
+            </div>
+            <div class="friend-con"></div>
+            <div class="row friend-title-con">
+              <div class="col-xl-8">
+                <p class="text-f text-left">People You May Know</p>
+              </div>
+            </div>
+            <div class="friend-con ">
+              <div class="row friend-row">
+                <div class="col-xl-2 ">
+                  <div class="user-circle-xs"></div>
+                </div>
+                <div class="col-xl-4 ">
+                  testing
+                </div>
+                <div class="col-xl-6 ">
+                  <button type="button" class="btn btn-light btn-sm">
+                    Add Friend
+                  </button>
+                  <button type="button" class="btn btn-light btn-sm">
+                    Remove
+                  </button>
+                </div>
+              </div>
+              <hr />
+              <div class="row friend-row">
+                <div class="col-xl-2 ">
+                  <div class="user-circle-xs"></div>
+                </div>
+                <div class="col-xl-4 ">
+                  testing
+                </div>
+                <div class="col-xl-6 ">
+                  <button type="button" class="btn btn-light btn-sm">
+                    Add Friend
+                  </button>
+                  <button type="button" class="btn btn-light btn-sm">
+                    Remove
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#"

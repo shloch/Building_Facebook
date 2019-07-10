@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :users
+  #resources :users
   get 'posts/index'
   get 'posts/create'
   get 'posts/new'
@@ -12,6 +12,12 @@ Rails.application.routes.draw do
   }
   resources :users
   resources :post_comments
+  resources :friendships, except: :create do
+    member do
+      get 'add_friend'
+    end
+  end
+
   resources :posts do
     collection do
       get 'add_post_like'

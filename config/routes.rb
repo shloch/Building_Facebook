@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   get 'posts/index'
   get 'posts/create'
   get 'posts/new'

@@ -3,7 +3,7 @@
     <div class="card-header"> <strong><%= p.author.name%> </strong>, <%= p.created_at%>  </div>
     <div class="card-body">
       <p>
-        <%= p.post_text%>
+        <%= sanitize p.post_text, tags: %w(strong em a)%>
       </p>
       <hr>
       <span>
@@ -37,7 +37,7 @@
               <div class="col-xl-10">
                 <p><strong> <%=comment.user.name %> </strong> </p>
                 <p>
-                  <%=comment.comment_text %>
+                  <%=  strip_tags(comment.comment_text) %>
                 </p>
               </div>
             </div>

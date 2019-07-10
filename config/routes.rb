@@ -5,11 +5,12 @@ Rails.application.routes.draw do
   get 'posts/edit'
   get 'posts/update'
   root 'dashboard#home'
+  get 'dashboard/home_page', to: 'dashboard#home_page'
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
   resources :users
-
+  resources :post_comments
   resources :posts do
     collection do
       get 'add_post_like'

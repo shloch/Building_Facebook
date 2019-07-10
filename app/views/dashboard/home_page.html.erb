@@ -29,42 +29,38 @@
       </button>
       <div class="collapse" id="collapse<%= index %>">
         <div class="card card-body">
-          <div class="comment-row row">
-            <div class="col-xl-2 d-flex justify-content-center">
-              <div class="user-circle-sm"></div>
+          <% p.post_comments.each do |comment| %>
+            <div class="comment-row row">
+              <div class="col-xl-2 d-flex justify-content-center">
+                <div class="user-circle-sm"></div>
+              </div>
+              <div class="col-xl-10">
+                <p><strong> <%=comment.user.name %> </strong> </p>
+                <p>
+                  <%=comment.comment_text %>
+                </p>
+              </div>
             </div>
-            <div class="col-xl-10">
-              <p>
-                Anim pariatur cliche reprehenderit, enim eiusmod high life
-                accusamus terry richardson ad squid. Nihil anim keffiyeh
-                helvetica, craft beer labore wes anderson cred nesciunt
-                sapiente ea proident.</p>
-              <button type="button" class="btn btn-light">
-                <i class="fa fa-thumbs-up" aria-hidden="true"></i> Like
-              </button>
-              <button
-                            type="button"
-                            class="btn btn-light"
-                          >
-                <i class="fa fa-comments" aria-hidden="true"></i>
-                Comments
-              </button>
-            </div>
-          </div>
+            <hr>
+          <% end %>
           <hr>
           <div class="comment-row row">
             <div class="col-xl-2 d-flex justify-content-center">
               <div class="user-circle-sm"></div>
             </div>
             <div class="col-xl-10">
-              <form action="">
+              <!----comment form-------->
+              <%= form_for(@post_comment) do |f| %>
                 <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Your comment" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                  <%= f.text_field :comment_text, class: 'form-control', placeholder: "Your comment", "aria-label": "Recipient's username", "aria-describedby": "basic-addon2"  %>
+                  <%= hidden_field_tag 'post_id', p.id  %>
+                  <%= hidden_field_tag 'user_id', @user_id %>
                   <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button">Submit</button>
+                    <%= f.submit "submit", class: "btn btn-outline-secondary" %>
                   </div>
                 </div>
-              </form>
+              <% end %>
+              <!----comment form [end]-------->
             </div>
           </div>
         </div>

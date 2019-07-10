@@ -11,7 +11,7 @@
       </span>
     </div>
     <div class="card-footer">
-      <%= link_to controller: 'posts', action: 'add_post_like', post_id: p.id, user_id: p.author_id  do %>
+      <%= link_to controller: 'posts', action: 'add_post_like', post_id: p.id, user_id: @user_id  do %>
         <button type="button" class="btn btn-light">
           <i class="fa fa-thumbs-up" aria-hidden="true"></i> Like
         </button>

@@ -12,9 +12,12 @@ Rails.application.routes.draw do
   }
   resources :users
   resources :post_comments
-  resources :friendships, except: :create do
+  resources :friendships, except: [:create, :update, :show] do
     member do
-      get 'add_friend'
+      get 'add_friend' 
+    end
+    collection do
+      get 'your_friends', 'pending_requests'
     end
   end
 

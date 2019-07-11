@@ -1,0 +1,73 @@
+<!----------------------------------------------------------------------------->
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <%= link_to("Add new firend", friendships_path, class:"nav-link") %>
+  </li>
+  <li class="nav-item">
+    <%= link_to("Your Friends", your_friends_friendships_path, class:"nav-link") %>
+  </li>
+  <li class="nav-item">
+    <%= link_to("Pending Requests", pending_requests_friendships_path, class:"nav-link active") %>
+  </li>
+</ul>
+<div class="friend-con ">
+  <!--------received requests--------->
+  <h2> RECEIVED REQUESTS </h2>
+  <% if @requests_received.count != 0 %>
+    <% @requests_received.each do |friend| %>
+      <div class="row friend-row">
+        <div class="col-xl-2 ">
+          <div class="user-circle-xs"></div>
+        </div>
+        <div class="col-xl-4 ">
+          <%=friend.inviting_friend.name %>
+        </div>
+        <div class="col-xl-6 ">
+          <%= link_to root_path do %>
+            <button
+                          type="button"
+                          class="btn btn-outline-secondary btn-sm"
+                        >
+              Accept Friend Request
+            </button>
+          <% end %>
+        </div>
+      </div>
+      <hr />
+    <% end %>
+  <% else %>
+    ZERO
+  <% end %>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <!--------sent requests --------->
+  <h2> SENT REQUESTS </h2>
+  <% if @requests_sent.count != 0 %>
+    <% @requests_sent.each do |f| %>
+      <div class="row friend-row">
+        <div class="col-xl-2 ">
+          <div class="user-circle-xs"></div>
+        </div>
+        <div class="col-xl-4 ">
+          <%=f.invited_friend.name %>
+        </div>
+        <div class="col-xl-6 ">
+          <%= link_to root_path do %>
+            <button
+                          type="button"
+                          class="btn btn-outline-secondary btn-sm"
+                        >
+              Cancel Friend Request
+            </button>
+          <% end %>
+        </div>
+      </div>
+      <hr />
+    <% end %>
+  <% else %>
+    ZERO
+  <% end %>
+</div>

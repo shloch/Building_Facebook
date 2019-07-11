@@ -184,112 +184,70 @@
         </ul>
       </div>
       <div class="col-xl-7 col-lg-7">
-        <nav>
-          <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <a
-              class="nav-item nav-link active"
-              id="nav-home-tab"
-              data-toggle="tab"
-              href="#nav-home"
-              role="tab"
-              aria-controls="nav-home"
-              aria-selected="true"
-              >Home</a
-            >
-            <a
-              class="nav-item nav-link"
-              id="nav-profile-tab"
-              data-toggle="tab"
-              href="#nav-profile"
-              role="tab"
-              aria-controls="nav-profile"
-              aria-selected="false"
-              >Profile</a
-            >
-            <a
-              class="nav-item nav-link"
-              id="nav-contact-tab"
-              data-toggle="tab"
-              href="#nav-contact"
-              role="tab"
-              aria-controls="nav-contact"
-              aria-selected="false"
-              >Contact</a
-            >
-          </div>
-        </nav>
-        <div class="tab-content" id="nav-tabContent">
-          <div
-            class="tab-pane fade show active"
-            id="nav-home"
-            role="tabpanel"
-            aria-labelledby="nav-home-tab"
-          >
+            <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Active</a>
+                     <%= link_to('Active', destroy_user_session_path, class: "nav-link active" method: :delete) %> 
+
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Link</a>
+                    </li>
+                    
+            </ul>
             <div class="friend-con ">
-              <div class="row friend-row">
-                <div class="col-xl-2 ">
-                  <div class="user-circle-xs"></div>
+                    <div class="row friend-row">
+                      <div class="col-xl-2 ">
+                        <div class="user-circle-xs"></div>
+                      </div>
+                      <div class="col-xl-4 ">
+                        testing
+                      </div>
+                      <div class="col-xl-6 ">
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary btn-sm"
+                        >
+                          Add Friend
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary btn-sm"
+                        >
+                          Remove
+                        </button>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="row friend-row">
+                      <div class="col-xl-2 ">
+                        <div class="user-circle-xs"></div>
+                      </div>
+                      <div class="col-xl-4 ">
+                        testing
+                      </div>
+                      <div class="col-xl-6 ">
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary btn-sm"
+                        >
+                          Add Friend
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary btn-sm"
+                        >
+                          Remove
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-xl-4 ">
-                  testing
-                </div>
-                <div class="col-xl-6 ">
-                  <button
-                    type="button"
-                    class="btn btn-outline-secondary btn-sm"
-                  >
-                    Add Friend
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-outline-secondary btn-sm"
-                  >
-                    Remove
-                  </button>
-                </div>
-              </div>
-              <hr />
-              <div class="row friend-row">
-                <div class="col-xl-2 ">
-                  <div class="user-circle-xs"></div>
-                </div>
-                <div class="col-xl-4 ">
-                  testing
-                </div>
-                <div class="col-xl-6 ">
-                  <button
-                    type="button"
-                    class="btn btn-outline-secondary btn-sm"
-                  >
-                    Add Friend
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-outline-secondary btn-sm"
-                  >
-                    Remove
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="tab-pane fade"
-            id="nav-profile"
-            role="tabpanel"
-            aria-labelledby="nav-profile-tab"
-          >
-            ...
-          </div>
-          <div
-            class="tab-pane fade"
-            id="nav-contact"
-            role="tabpanel"
-            aria-labelledby="nav-contact-tab"
-          >
-            ...
-          </div>
-        </div>
+      
+        
       </div>
     </div>
     <script

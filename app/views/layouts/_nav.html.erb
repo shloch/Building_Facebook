@@ -24,25 +24,23 @@
       </form>
       <ul class="navbar-nav mr-auto ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">
+          <a class="nav-link nav-link2" href="#">
             <i class="fa fa-user-circle" aria-hidden="true"></i>
             User <span class="sr-only">(current)</span></a
             >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"
+          <a class="nav-link nav-link2" href="#"
               >Home <span class="sr-only">(current)</span></a
             >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"
+          <a class="nav-link nav-lin2" href="#"
               >Create <span class="sr-only">(current)</span></a
             >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"
-              ><%= link_to('Logout', destroy_user_session_path, method: :delete) %> <span class="sr-only">(current)</span></a
-            >
+          <%= link_to('Logout', destroy_user_session_path, class: "nav-link" method: :delete) %> <span class="sr-only">(current)</span>
         </li>
         <li class="nav-item dropdown">
           <a

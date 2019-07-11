@@ -6,7 +6,8 @@ body {
   color: white !important;
 }
 
-.nav-brand {
+.navbar-brand,
+.nav-link2 {
   color: white !important;
 }
 
@@ -44,7 +45,7 @@ body {
 
 .r-con {
   background-color: #e9ebee !important;
-  height: auto;
+  min-height: 100vh;
   padding: 10px 0px;
 }
 
@@ -115,4 +116,31 @@ body {
 
 .friend-con hr {
   margin: 0px;
+}
+
+.profile-cover {
+  height: 350px;
+  align-content: flex-end;
+  background-color: #aaa;
+}
+
+.profile-cover .user-circle {
+  margin: 14px;
+}
+
+.friend-box-con {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.friend-box {
+  height: 70px;
+  width: 70px;
+  background-color: #44619d;
+  box-sizing: border-box;
+  margin: 4px;
+}
+
+.sidebar .nav-link {
+  color: black !important;
 }

@@ -15,7 +15,7 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>Profile</title>
+    <title>Document</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light nav-color">
@@ -45,18 +45,18 @@
         </form>
         <ul class="navbar-nav mr-auto ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">
+            <a class="nav-link nav-link2" href="#">
               <i class="fa fa-user-circle" aria-hidden="true"></i>
               User <span class="sr-only">(current)</span></a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"
+            <a class="nav-link nav-link2" href="#"
               >Home <span class="sr-only">(current)</span></a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"
+            <a class="nav-link nav-link2" href="#"
               >Create <span class="sr-only">(current)</span></a
             >
           </li>
@@ -156,69 +156,142 @@
         </ul>
       </div>
     </nav>
-    <div class="row">
-      <div class="col-xl-10 col-lg-10 d-flex justify-content-center">
-        <div class="col-xl-11 col-lg-11">
-          <div class="row profile-cover">
-            <div class="user-circle"></div>
+    <div class="row r-con">
+      <div class="col-xl-2 col-lg-2 sidebar">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa fa-user-circle" aria-hidden="true"></i>
+              Username</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa fa-comments" aria-hidden="true"></i>
+              Messaging</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa fa-video-camera" aria-hidden="true"></i>
+              Watch</a
+            >
+          </li>
+          <h6 class="ml-4">Shortcuts</h6>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-xl-7 col-lg-7">
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a
+              class="nav-item nav-link active"
+              id="nav-home-tab"
+              data-toggle="tab"
+              href="#nav-home"
+              role="tab"
+              aria-controls="nav-home"
+              aria-selected="true"
+              >Home</a
+            >
+            <a
+              class="nav-item nav-link"
+              id="nav-profile-tab"
+              data-toggle="tab"
+              href="#nav-profile"
+              role="tab"
+              aria-controls="nav-profile"
+              aria-selected="false"
+              >Profile</a
+            >
+            <a
+              class="nav-item nav-link"
+              id="nav-contact-tab"
+              data-toggle="tab"
+              href="#nav-contact"
+              role="tab"
+              aria-controls="nav-contact"
+              aria-selected="false"
+              >Contact</a
+            >
           </div>
-          <div class="row">
-            <div class="col-xl-4 col-lg-4">
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Profile</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Profile Info</h6>
-                  <p class="card-text">
-                    <i class="fa fa-home" aria-hidden="true"></i>
-                    lives in : Kumasi Ghana
-                  </p>
-                  <p class="card-text">
-                    <i class="fa fa-user" aria-hidden="true"></i>
-                    username is
-                  </p>
-                  <p class="card-text">
-                    <i class="fa fa-home" aria-hidden="true"></i>
-                    joined in
-                  </p>
-                  <a href="#" class="card-link"
-                    ><button
-                      type="button"
-                      class="btn btn-outline-primary btn-sm"
-                    >
-                      Edit Profile info
-                    </button></a
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+          <div
+            class="tab-pane fade show active"
+            id="nav-home"
+            role="tabpanel"
+            aria-labelledby="nav-home-tab"
+          >
+            <div class="friend-con ">
+              <div class="row friend-row">
+                <div class="col-xl-2 ">
+                  <div class="user-circle-xs"></div>
+                </div>
+                <div class="col-xl-4 ">
+                  testing
+                </div>
+                <div class="col-xl-6 ">
+                  <button
+                    type="button"
+                    class="btn btn-outline-secondary btn-sm"
                   >
+                    Add Friend
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-outline-secondary btn-sm"
+                  >
+                    Remove
+                  </button>
                 </div>
               </div>
-              <div class="card">
-                <div class="card-body">
-                  <h6 class="card-subtitle mb-2 text-muted">Friends</h6>
-                  <div class="friend-box-con">
-                    <div class="friend-box"></div>
-                    <div class="friend-box"></div>
-                    <div class="friend-box"></div>
-                    <div class="friend-box"></div>
-                    <div class="friend-box"></div>
-                  </div>
-
-                  <a href="#" class="card-link"
-                    ><button
-                      type="button"
-                      class="btn btn-outline-primary btn-sm"
-                    >
-                      Add New Friends
-                    </button></a
+              <hr />
+              <div class="row friend-row">
+                <div class="col-xl-2 ">
+                  <div class="user-circle-xs"></div>
+                </div>
+                <div class="col-xl-4 ">
+                  testing
+                </div>
+                <div class="col-xl-6 ">
+                  <button
+                    type="button"
+                    class="btn btn-outline-secondary btn-sm"
                   >
+                    Add Friend
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-outline-secondary btn-sm"
+                  >
+                    Remove
+                  </button>
                 </div>
               </div>
             </div>
-            <div class="col-xl-8 col-lg-8"></div>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="nav-profile"
+            role="tabpanel"
+            aria-labelledby="nav-profile-tab"
+          >
+            ...
+          </div>
+          <div
+            class="tab-pane fade"
+            id="nav-contact"
+            role="tabpanel"
+            aria-labelledby="nav-contact-tab"
+          >
+            ...
           </div>
         </div>
       </div>
-      <div class="col-xl-2 col-lg-2"></div>
     </div>
-
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

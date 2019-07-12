@@ -1,19 +1,31 @@
 <% @you_and_friends_posts.each_with_index do |p,index| %>
   <div class="card col-xl-12 col-lg-12 col-md-12">
-    <div class="card-header"> <strong><%= p.author.name%> </strong>, <%= p.created_at%>  </div>
+    <div class="card-header"> <strong><%= p.author.name%> </strong>, <%= p.created_at.strftime("Posted on %B %d at %I:%M %p")%>  </div>
     <div class="card-body">
       <p>
         <%= sanitize p.post_text, tags: %w(strong em a)%>
       </p>
       <hr>
       <span>
-        Likes : <%= p.like_total %>
+        <%= pluralize(p.like_total, 'Like')  %>
       </span>
     </div>
     <div class="card-footer">
-      <%= link_to controller: 'posts', action: 'add_post_like', post_id: p.id, user_id: @user_id  do %>
+      <% my_like_counts = 0 %>
+      <% p.like_posts.as_json.each do |each_like| %>
+        <%  my_like_counts += 1  if each_like['user_id'] == @logged_user.id %> <!--  already like-->
+      <% end %>
+      <% if my_like_counts == 0 %>
+        <!--not liked-->
+        <%= link_to controller: 'posts', action: 'add_post_like', post_id: p.id, user_id: @user_id  do %>
+          <button type="button" class="btn btn-light">
+            <i class="fa fa-thumbs-up" aria-hidden="true"></i> Like
+          </button>
+        <% end %>
+      <% else %>
+        <!--already like-->
         <button type="button" class="btn btn-light">
-          <i class="fa fa-thumbs-up" aria-hidden="true"></i> Like
+          <i class="fa fa-thumbs-up already-like-thumbs" aria-hidden="true"></i> You Liked
         </button>
       <% end %>
       <button
@@ -25,17 +37,20 @@
               aria-controls="collapse<%= index %>"
             >
         <i class="fa fa-comments" aria-hidden="true"></i>
-        Comments
+        See comments
       </button>
       <div class="collapse" id="collapse<%= index %>">
         <div class="card card-body">
           <% p.post_comments.each do |comment| %>
             <div class="comment-row row">
               <div class="col-xl-2 d-flex justify-content-center">
-                <div class="user-circle-sm"></div>
+                <div class="user-circle-sm"> <%= gravatar_for comment.user %> </div>
               </div>
               <div class="col-xl-10">
-                <p><strong> <%=comment.user.name %> </strong> </p>
+                <p>
+                  <strong> <%=comment.user.name %> </strong>
+                  <em><%= comment.created_at.strftime(", %B %d at %I:%M %p")%> </em>
+                </p>
                 <p>
                   <%=  strip_tags(comment.comment_text) %>
                 </p>
@@ -46,13 +61,13 @@
           <hr>
           <div class="comment-row row">
             <div class="col-xl-2 d-flex justify-content-center">
-              <div class="user-circle-sm"></div>
+              <div class="user-circle-sm"> <%= gravatar_for @logged_user %> </div>
             </div>
             <div class="col-xl-10">
               <!----comment form-------->
               <%= form_for(@post_comment) do |f| %>
                 <div class="input-group mb-3">
-                  <%= f.text_field :comment_text, class: 'form-control', placeholder: "Your comment", "aria-label": "Recipient's username", "aria-describedby": "basic-addon2"  %>
+                  <%= f.text_field :comment_text, class: 'form-control', placeholder: "Add your comment", "aria-label": "Recipient's username", "aria-describedby": "basic-addon2"  %>
                   <%= hidden_field_tag 'post_id', p.id  %>
                   <%= hidden_field_tag 'user_id', @user_id %>
                   <div class="input-group-append">

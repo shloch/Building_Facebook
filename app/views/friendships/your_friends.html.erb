@@ -16,7 +16,7 @@
     <% @friends.each do |friendship| %>
       <div class="row friend-row">
         <div class="col-xl-2 ">
-          <div class="user-circle-xs"></div>
+          <div class="user-circle-xs"><%= gravatar_for friendship.invited_friend %></div>
         </div>
         <div class="col-xl-4 ">
           <%=friendship.invited_friend.name %>

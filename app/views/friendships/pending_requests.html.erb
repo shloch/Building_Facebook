@@ -17,7 +17,7 @@
       <h2> These user(s) sent you a Friend Request</h2>
       <div class="row friend-row">
         <div class="col-xl-2 ">
-          <div class="user-circle-xs"></div>
+          <div class="user-circle-xs"><%= gravatar_for friendship.inviting_friend %></div>
         </div>
         <div class="col-xl-4 ">
           <%=friendship.inviting_friend.name %>
@@ -44,7 +44,9 @@
       <hr />
     <% end %>
   <% else %>
-    You have no friend requests sent to you at moment
+    <br/>
+    <br/>
+    <em>You have no friend requests sent to you at moment </em>
   <% end %>
   <br>
   <br>

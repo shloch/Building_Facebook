@@ -19,7 +19,7 @@ class FriendshipsController < ApplicationController
 
     def pending_requests
         @requests_sent = Friendship.where(inviting_id:@logged_user).includes(:invited_friend).where(status:'pending')
-        @requests_received = Friendship.where(invited_id:@logged_user).includes(:inviting_friend).where(status:'pending')
+        #@requests_received = Friendship.where(invited_id:@logged_user).includes(:inviting_friend).where(status:'pending')
     end
 
     def accept_request

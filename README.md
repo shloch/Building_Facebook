@@ -1,3 +1,3 @@
 # Building_Facebook
 
-![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![alt text](https://github.com/shloch/Building_Facebook/blob/controllers/DOCS/My_facebook_ERB.png)

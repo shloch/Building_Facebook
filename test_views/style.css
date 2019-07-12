@@ -144,3 +144,10 @@ body {
 .sidebar .nav-link {
   color: black !important;
 }
+
+.badge-notify {
+  background: #4cd964;
+  position: relative;
+  top: -12px;
+  left: -16px;
+}

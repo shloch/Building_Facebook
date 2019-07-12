@@ -30,7 +30,7 @@
             >
         </li>
         <li class="nav-item ">
-          <%= link_to("Home", dashboard_home_page_path(:uuid => "#{@logged_user.id.to_s}356a19"), class: "nav-link") %> <span class="sr-only">(current)</span>
+          <%= link_to("Home", dashboard_home_page_path(:uuid => "#{@logged_user.id.to_s}356a19"), class: "nav-link nav-link2") %> <span class="sr-only">(current)</span>
         </li>
         <li class="nav-item">
           <a class="nav-link nav-lin2" href="#"
@@ -38,7 +38,7 @@
             >
         </li>
         <li class="nav-item">
-          <%= link_to('Logout', destroy_user_session_path, class: "nav-link", method: :delete) %> <span class="sr-only">(current)</span>
+          <%= link_to('Logout', destroy_user_session_path, class: "nav-link nav-link2", method: :delete) %> <span class="sr-only">(current)</span>
         </li>
         <li class="nav-item dropdown">
           <a
@@ -51,6 +51,7 @@
               aria-expanded="false"
             >
             <i class="fa fa-users" aria-hidden="true"></i>
+            <span class="badge badge-notify" style="font-size:10px;">3</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <div class="row friend-title-con">

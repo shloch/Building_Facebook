@@ -143,4 +143,16 @@ body {
 
 .sidebar .nav-link {
   color: black !important;
+  font-size: small;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #f5f6f7;
+}
+
+.badge-notify {
+  background: #c35050;
+  position: relative;
+  top: -12px;
+  left: -9px;
 }

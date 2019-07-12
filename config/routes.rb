@@ -12,12 +12,13 @@ Rails.application.routes.draw do
   }
   resources :users
   resources :post_comments
-  resources :friendships, except: [:create, :update, :show] do
+  resources :friendships, only: [:index, :destroy] do
     member do
-      get 'add_friend' 
+      get 'add_friend'
+      delete 'turn_down'
     end
     collection do
-      get 'your_friends', 'pending_requests'
+      get 'your_friends', 'pending_requests', 'accept_request'
     end
   end
 

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light nav-color">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" href="/">Facebook</a>
   <button
         class="navbar-toggler"
         type="button"
@@ -26,13 +26,11 @@
         <li class="nav-item active">
           <a class="nav-link nav-link2" href="#">
             <i class="fa fa-user-circle" aria-hidden="true"></i>
-            User <span class="sr-only">(current)</span></a
+            <%= @logged_user.name.upcase%> <span class="sr-only">(current)</span></a
             >
         </li>
-        <li class="nav-item">
-          <a class="nav-link nav-link2" href="#"
-              >Home <span class="sr-only">(current)</span></a
-            >
+        <li class="nav-item ">
+          <%= link_to("Home", dashboard_home_page_path(:uuid => "#{@logged_user.id.to_s}356a19"), class: "nav-link") %> <span class="sr-only">(current)</span>
         </li>
         <li class="nav-item">
           <a class="nav-link nav-lin2" href="#"

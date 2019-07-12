@@ -12,18 +12,18 @@
 </ul>
 <div class="friend-con ">
   <!--------received requests--------->
-  <h2> RECEIVED REQUESTS </h2>
   <% if @requests_received.count != 0 %>
-    <% @requests_received.each do |friend| %>
+    <% @requests_received.each do |friendship| %>
+      <h2> These user(s) sent you a Friend Request</h2>
       <div class="row friend-row">
         <div class="col-xl-2 ">
           <div class="user-circle-xs"></div>
         </div>
         <div class="col-xl-4 ">
-          <%=friend.inviting_friend.name %>
+          <%=friendship.inviting_friend.name %>
         </div>
         <div class="col-xl-6 ">
-          <%= link_to root_path do %>
+          <%= link_to accept_request_friendships_path(friendshipid: friendship) do %>
             <button
                           type="button"
                           class="btn btn-outline-secondary btn-sm"
@@ -31,21 +31,26 @@
               Accept Friend Request
             </button>
           <% end %>
+          <%= link_to turn_down_friendship_path(friendship), method: :delete do %>
+            <button
+                          type="button"
+                          class="btn btn-outline-secondary btn-sm"
+                        >
+              Turn down
+            </button>
+          <% end %>
         </div>
       </div>
       <hr />
     <% end %>
   <% else %>
-    ZERO
+    You have no friend requests sent to you at moment
   <% end %>
   <br>
   <br>
-  <br>
-  <br>
-  <br>
   <!--------sent requests --------->
-  <h2> SENT REQUESTS </h2>
   <% if @requests_sent.count != 0 %>
+    <h2> You have sent request to following users </h2>
     <% @requests_sent.each do |f| %>
       <div class="row friend-row">
         <div class="col-xl-2 ">
@@ -54,20 +59,10 @@
         <div class="col-xl-4 ">
           <%=f.invited_friend.name %>
         </div>
-        <div class="col-xl-6 ">
-          <%= link_to root_path do %>
-            <button
-                          type="button"
-                          class="btn btn-outline-secondary btn-sm"
-                        >
-              Cancel Friend Request
-            </button>
-          <% end %>
-        </div>
       </div>
       <hr />
     <% end %>
   <% else %>
-    ZERO
+    <!-----NO FRIEND REQUEST SENT BY YOU TO OTHERS----->
   <% end %>
 </div>

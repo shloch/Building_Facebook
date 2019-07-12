@@ -11,23 +11,23 @@
   </li>
 </ul>
 <div class="friend-con ">
-  <!--------received requests--------->
+  <!--------Friend List--------->
   <% if @friends.count != 0 %>
-    <% @friends.each do |friend| %>
+    <% @friends.each do |friendship| %>
       <div class="row friend-row">
         <div class="col-xl-2 ">
           <div class="user-circle-xs"></div>
         </div>
         <div class="col-xl-4 ">
-          <%=friend.invited_friend.name %>
+          <%=friendship.invited_friend.name %>
         </div>
         <div class="col-xl-6 ">
-          <%= link_to root_path do %>
+          <%= link_to friendship_path(friendship.invited_friend), method: :delete do %>
             <button
                           type="button"
                           class="btn btn-outline-secondary btn-sm"
                         >
-              Accept Friend Request
+              Delete as Friend
             </button>
           <% end %>
         </div>

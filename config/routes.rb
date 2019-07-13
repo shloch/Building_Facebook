@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   }
   resources :users
   resources :post_comments
+  resources :profiles, only: [:show]
   resources :friendships, only: [:index, :destroy] do
     member do
       get 'add_friend'

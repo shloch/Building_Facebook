@@ -56,7 +56,7 @@ body {
     height: 90px;
     width: 90px;
     border-radius: 50%;
-    background-color: #44619d;
+    //background-color: #44619d;
     .gravatar {
         width: inherit;
         border-radius: inherit;
@@ -67,7 +67,7 @@ body {
     height: 60px;
     width: 60px;
     border-radius: 50%;
-    background-color: #44619d;
+    //background-color: #44619d;
     align-self: center;
     .gravatar {
         width: inherit;
@@ -79,7 +79,7 @@ body {
     height: 40px;
     width: 40px;
     border-radius: 50%;
-    background-color: #44619d;
+    //background-color: #44619d;
     .gravatar {
         width: inherit;
         border-radius: inherit;
@@ -139,6 +139,8 @@ body {
     height: 350px;
     align-content: flex-end;
     background-color: #aaa;
+    background-image: url("https://picsum.photos/1000/349?random=1");
+    background-repeat: no-repeat;
 }
 
 .profile-cover .user-circle {
@@ -156,6 +158,9 @@ body {
     background-color: #44619d;
     box-sizing: border-box;
     margin: 4px;
+    img {
+        width: inherit;
+    }
 }
 
 .sidebar .nav-link {

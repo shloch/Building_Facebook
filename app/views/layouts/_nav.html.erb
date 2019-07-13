@@ -24,9 +24,9 @@
       </form>
       <ul class="navbar-nav mr-auto ml-auto">
         <li class="nav-item active">
-          <a class="nav-link nav-link2" href="#">
+          <a class="nav-link nav-link2" href="/profiles/<%=@logged_user.id%>" title="view Profile">
             <i class="fa fa-user-circle" aria-hidden="true"></i>
-            <%= @logged_user.name.upcase%> <span class="sr-only">(current)</span></a
+            <%= @logged_user.name.upcase%>'s PROFILE <span class="sr-only">(current)</span></a
             >
         </li>
         <li class="nav-item ">
@@ -104,12 +104,12 @@
                   </div>
                 <% end %>
                 <hr />
-              </div>
-            <% else %>
-              You have no friend requests sent to you at moment 
-            <% end %>
-          </div>
-        </li>
-      </ul>
+        </div>
+      <% else %>
+        You have no friend requests sent to you at moment 
+      <% end %>
     </div>
-  </nav>
+  </li>
+</ul>
+</div>
+</nav>

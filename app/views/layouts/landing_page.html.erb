@@ -1,27 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BuildingFacebook</title>
+    <title>Building Facebook</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-        rel="stylesheet"
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous"
-      />
-      <link
-        rel="stylesheet"
-        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-      />
-        <%= render 'layouts/rails_default' %>
-        <%= render 'layouts/shim' %>
-      </head>
-      <body>
-        <!----nav---->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light nav-color">
-          <a class="navbar-brand" href="/">Facebook</a>
-          <button
+    <%= render 'layouts/bootstrap_calls' %>
+    <%= render 'layouts/rails_default' %>
+    <%= render 'layouts/shim' %>
+  </head>
+  <body>
+    <!----nav---->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light nav-color">
+      <a class="navbar-brand" href="/">Facebook</a>
+      <button
         class="navbar-toggler"
         type="button"
         data-toggle="collapse"
@@ -30,115 +21,101 @@
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto"></ul>
-            <!------login-------------->
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-              <div class="form-row">
-                <div class="form-group col-md-5">
-                  <%= f.label "Email or Phone" %>
-                  <%= f.text_field :login, autofocus: true, autocomplete: "email", class:"form-control form-control-sm mr-sm-2" %>
-                  <% if devise_mapping.rememberable? %>
-                    <%= f.check_box :remember_me %>
-                    <%= f.label :remember_me %>
-                  <% end %>
-                </div>
-                <div class="form-group col-md-5">
-                  <%= f.label :password %>
-                  <%= f.password_field :password, autocomplete: "current-password", class:"form-control form-control-sm mr-sm-2" %>
-                  <%= link_to "Forgot your password?", new_password_path(resource_name) %>
-                </div>
-                <div class="form-group button-group">
-                  <button class="btn btn-primary my-2 my-sm-0 btn-sm" type="submit">
-                    Login
-                  </button>
-                </div>
-              </div>
-            <% end %>
-            <!------login [END]-------------->
-          </div>
-        </nav>
-        <!----nav---->
-        <div class="container">
-          <div class="d-flex justify-content-end row">
-            <%= yield %>
-            <div class="col-xl-5 col-md-5">
-              <!------SIGN_UP-------------->
-              <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "signUp"}) do |f| %>
-                <%= devise_error_messages! %>
-                <h1>Create a new account</h1>
-                <h5>Its a free and will always be free</h5>
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <%= f.label :email %>
-                    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", id:"inputEmail4", placeholder:"Email" %>
-                  </div>
-                  <div class="form-group col-md-6">
-                    <%= f.label "Username" %>
-                    <%= f.text_field :name, class:"form-control", id:"username", placeholder:"Username" %>
-                  </div>
-                </div>
-                <div class="field">
-                  <%= f.label :mobile %><br />
-                  <%= f.text_field :mobile, autocomplete: "mobile", placeholder:"55555555", class:"form-control" %>
-                </div>
-                <br/>
-                <!----passwords--->
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <%= f.label :password %>
-                    <% if @minimum_password_length %>
-                      <em>(<%= @minimum_password_length %> characters minimum)</em>
-                    <% end %><br />
-                    <%= f.password_field :password, autocomplete: "new-password" , class:"form-control", id:"inputPassword4", placeholder:"password"%>
-                  </div>
-                  <div class="form-group col-md-6">
-                    <%= f.label :password_confirmation %>
-                    <%= f.password_field :password_confirmation, autocomplete: "new-password" , class:"form-control", id:"inputPassword4", placeholder:"password"%>
-                  </div>
-                </div>
-                <!----passwords(end)--->
-                <div class="form-group row">
-                  <%= f.label "Birthday", class:"col-2 col-form-label"  %>
-                  <div class="col-10">
-                    <%= f.date_field :date_of_birth, class:"form-control", id:"example-date-input", value:"2011-08-19" %>
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-check-inline">
-                    <%= f.radio_button :gender, id:"M", value:"M" %>
-                    <%= label :gender, 'Male', class:"form-check-label" %>
-                  </div>
-                  <div class="form-check-inline">
-                    <%= f.radio_button :gender, id:"F", value:"F" %>
-                    <%= label :gender, 'Female', class:"form-check-label" %>
-                  </div>
-                </div>
-                <div class="form-group"></div>
-                <button type="submit" class="btn btn-success col-md-5">
-                  Sign up
-                </button>
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto"></ul>
+        <!------login-------------->
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-row">
+            <div class="form-group col-md-5">
+              <%= f.label "Email or Phone" %>
+              <%= f.text_field :login, autofocus: true, autocomplete: "email", class:"form-control form-control-sm mr-sm-2" %>
+              <% if devise_mapping.rememberable? %>
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
               <% end %>
-              <!------SIGN_UP [END]-------------->
+            </div>
+            <div class="form-group col-md-5">
+              <%= f.label :password %>
+              <%= f.password_field :password, autocomplete: "current-password", class:"form-control form-control-sm mr-sm-2" %>
+              <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+            </div>
+            <div class="form-group button-group">
+              <button class="btn btn-primary my-2 my-sm-0 btn-sm" type="submit">
+                Login
+              </button>
             </div>
           </div>
+        <% end %>
+        <!------login [END]-------------->
+      </div>
+    </nav>
+    <!----nav---->
+    <div class="container">
+      <div class="d-flex justify-content-end row">
+        <%= yield %>
+        <div class="col-xl-5 col-md-5">
+          <!------SIGN_UP-------------->
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "signUp"}) do |f| %>
+            <%= devise_error_messages! %>
+            <h1>Create a new account</h1>
+            <h5>Its a free and will always be free</h5>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <%= f.label :email %>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", id:"inputEmail4", placeholder:"Email" %>
+              </div>
+              <div class="form-group col-md-6">
+                <%= f.label "Username" %>
+                <%= f.text_field :name, class:"form-control", id:"username", placeholder:"Username" %>
+              </div>
+            </div>
+            <div class="field">
+              <%= f.label :mobile %><br />
+              <%= f.text_field :mobile, autocomplete: "mobile", placeholder:"55555555", class:"form-control" %>
+            </div>
+            <br/>
+            <!----passwords--->
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <%= f.label :password %>
+                <% if @minimum_password_length %>
+                  <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %><br />
+                <%= f.password_field :password, autocomplete: "new-password" , class:"form-control", id:"inputPassword4", placeholder:"password"%>
+              </div>
+              <div class="form-group col-md-6">
+                <%= f.label :password_confirmation %>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password" , class:"form-control", id:"inputPassword4", placeholder:"password"%>
+              </div>
+            </div>
+            <!----passwords(end)--->
+            <div class="form-group row">
+              <%= f.label "Birthday", class:"col-2 col-form-label"  %>
+              <div class="col-10">
+                <%= f.date_field :date_of_birth, class:"form-control", id:"example-date-input", value:"2011-08-19" %>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-check-inline">
+                <%= f.radio_button :gender, id:"M", value:"M" %>
+                <%= label :gender, 'Male', class:"form-check-label" %>
+              </div>
+              <div class="form-check-inline">
+                <%= f.radio_button :gender, id:"F", value:"F" %>
+                <%= label :gender, 'Female', class:"form-check-label" %>
+              </div>
+            </div>
+            <div class="form-group"></div>
+            <button type="submit" class="btn btn-success col-md-5">
+              Sign up
+            </button>
+          <% end %>
+          <!------SIGN_UP [END]-------------->
         </div>
-        <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-        <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-        <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
-      </body>
-    </html>
+      </div>
+    </div>
+    <%= render 'layouts/footer_scripts' %>
+  </body>
+</html>

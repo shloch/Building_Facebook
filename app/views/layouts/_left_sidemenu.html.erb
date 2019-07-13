@@ -1,12 +1,12 @@
 <ul class="nav flex-column">
   <li class="nav-item">
-    <a class="nav-link" href="#">
+    <a class="nav-link" href="/profiles/<%=@logged_user.id%>" title="view Profile">
       <i class="fa fa-user-circle" aria-hidden="true"></i>
       <%= @logged_user.name.upcase%></a
             >
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/friendships/your_friends">
+    <a class="nav-link" href="/friendships/your_friends" title="view frienships">
       <i class="fa fa-users" aria-hidden="true"></i>
       FRIENDSHIPS</a
             >

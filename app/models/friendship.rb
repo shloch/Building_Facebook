@@ -10,6 +10,6 @@ class Friendship < ApplicationRecord
     end
 
     def Friendship.get_friend_requests(user)
-        Frienship.where(inviting_friend:user)
+        Friendship.where(inviting_friend:user).get_my_fr_request
     end
 end

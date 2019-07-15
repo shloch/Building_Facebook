@@ -3,7 +3,7 @@ class FriendshipsController < ApplicationController
     layout 'frienship_template'
    
     def index
-        @users = User.all.where.not(id:@logged_user.id).includes(:inviting_friends).includes(:invited_friends)
+        @users = User.users_except_me_with_their_friends(@logged_user)
     end
 
     def add_friend
@@ -14,11 +14,11 @@ class FriendshipsController < ApplicationController
     end
 
     def your_friends
-        @friends = Friendship.where(inviting_id:@logged_user).includes(:invited_friend).where(status:'accepted')
+        @friends = Friendship.get_friends_of_user(@logged_user)
     end
 
     def pending_requests
-        @requests_sent = Friendship.where(inviting_id:@logged_user).includes(:invited_friend).where(status:'pending')
+        @requests_sent = Friendship.get_friend_requests(@logged_user)
         #@requests_received = Friendship.where(invited_id:@logged_user).includes(:inviting_friend).where(status:'pending')
     end
 
@@ -35,10 +35,9 @@ class FriendshipsController < ApplicationController
 
     def destroy
         friend_id = params[:id]
-        #p "friend id -------> #{friend_id}"
-        #p "looged user---->  #{@logged_user.id}"
         Friendship.find_by(inviting_id:@logged_user, invited_id: friend_id).delete 
         Friendship.find_by(inviting_id:friend_id, invited_id: @logged_user).delete
+        Friendship.destroy_friendship(@logged_user, friend_id)
         flash[:info] = "Frienship deleted successfully"  
         redirect_to your_friends_friendships_path
     end

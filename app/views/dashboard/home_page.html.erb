@@ -17,7 +17,7 @@
       <% end %>
       <% if my_like_counts == 0 %>
         <!--not liked-->
-        <%= link_to controller: 'posts', action: 'add_post_like', post_id: p.id, user_id: @user_id  do %>
+        <%= link_to controller: 'posts', action: 'add_post_like', post_id: p.id, user_id: @logged_user.id  do %>
           <button type="button" class="btn btn-light">
             <i class="fa fa-thumbs-up" aria-hidden="true"></i> Like
           </button>

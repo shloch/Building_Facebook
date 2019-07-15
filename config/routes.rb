@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :posts do
+  resources :posts, only: [:create] do
     collection do
       get 'add_post_like'
     end

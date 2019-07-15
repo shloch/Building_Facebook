@@ -23,6 +23,8 @@ class User < ApplicationRecord
       
   devise :omniauthable, omniauth_providers: [:facebook]
 
+  scope :all_friends, -> {includes(:inviting_friends).includes(:invited_friends)}
+  
   
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
@@ -32,6 +34,10 @@ class User < ApplicationRecord
       where(conditions.to_hash)
     end
     
+  end
+
+  def User.users_except_me_with_their_friends(me)
+    User.all.where.not(id:me.id).all_friends
   end
 
 end

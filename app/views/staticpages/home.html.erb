@@ -11,8 +11,6 @@
       <%= link_to('Edit Account', edit_user_registration_path) %>
     </li>
   <% else %>
-    <li><%= link_to('Login', new_user_session_path) %></li>
     <li><%= link_to('Login via facebook', user_facebook_omniauth_authorize_path) %></li>
-    <li><%= link_to('CREATE ACCOUNT', '/users/sign_up') %></li>
   <% end %>
 </div>

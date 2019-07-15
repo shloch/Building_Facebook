@@ -13,8 +13,8 @@
 <div class="friend-con ">
   <!--------received requests--------->
   <% if @requests_received.count != 0 %>
+    <h2> The following user(s) sent you a Friend Request</h2>
     <% @requests_received.each do |friendship| %>
-      <h2> These user(s) sent you a Friend Request</h2>
       <div class="row friend-row">
         <div class="col-xl-2 ">
           <div class="user-circle-xs"><%= gravatar_for friendship.inviting_friend %></div>
@@ -56,7 +56,7 @@
     <% @requests_sent.each do |f| %>
       <div class="row friend-row">
         <div class="col-xl-2 ">
-          <div class="user-circle-xs"></div>
+          <div class="user-circle-xs"><%= gravatar_for f.invited_friend %></div>
         </div>
         <div class="col-xl-4 ">
           <%=f.invited_friend.name %>

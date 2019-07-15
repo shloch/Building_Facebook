@@ -16,11 +16,13 @@ class DashboardController < ApplicationController
         @user_id = params[:uuid].first
         @post = Post.new 
         @post_comment = PostComment.new
-        @you_and_friends_posts = Post.all.includes(:author).includes(:post_comments => :user).includes(:like_posts).order(id: :desc)
+        #@you_and_friends_posts = Post.all.includes(:author).includes(:post_comments => :user).includes(:like_posts).order(id: :desc)
 
-       # @you_and_friends_posts = Post.all.includes(:author).includes(:post_comments => :user).includes(:like_posts).order(id: :desc)
-       # @you_and_friends_posts = @logged_user.includes(:post, :invited_friends => :post).where(status:'accepted')
-        #@you_and_friends_posts = Post.all.includes(:author=> sent_invites).where(projects: {id: project_id})
+      
+        friends_IDs_array = Friendship.where(inviting_id:@logged_user).where(status:'accepted').pluck(:invited_id)
+        friends_IDs_array << @logged_user.id
+        @you_and_friends_posts = Post.includes(:author).includes(:post_comments => :user).includes(:like_posts).order(id: :desc).where(author: friends_IDs_array).limit(25)
+
     end
 
     

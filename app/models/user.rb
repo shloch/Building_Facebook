@@ -19,9 +19,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
       
-  devise :omniauthable, omniauth_providers: [:facebook]
 
   scope :all_friends, -> {includes(:inviting_friends).includes(:invited_friends)}
   
@@ -38,6 +37,25 @@ class User < ApplicationRecord
 
   def User.users_except_me_with_their_friends(me)
     User.all.where.not(id:me.id).all_friends
+  end
+
+  #---omniauth functions ---
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        user.email = data["email"] if user.email.blank?
+      end
+    end
+  end
+  
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      user.name = auth.info.name   # assuming the user model has a name
+      user.image = auth.info.image # assuming the user model has an image
+    end
   end
 
 end

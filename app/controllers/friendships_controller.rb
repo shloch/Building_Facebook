@@ -37,7 +37,6 @@ class FriendshipsController < ApplicationController
         friend_id = params[:id]
         Friendship.find_by(inviting_id:@logged_user, invited_id: friend_id).delete 
         Friendship.find_by(inviting_id:friend_id, invited_id: @logged_user).delete
-        Friendship.destroy_friendship(@logged_user, friend_id)
         flash[:info] = "Frienship deleted successfully"  
         redirect_to your_friends_friendships_path
     end

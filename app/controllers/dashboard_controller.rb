@@ -3,11 +3,11 @@ class DashboardController < ApplicationController
 
     
     def home
-        user = current_user
         
-        if user.nil?       
+        if !user_signed_in?       
             redirect_to controller: 'staticpages', action: 'home'
         else
+            user = current_user
             redirect_to controller: 'dashboard', action: 'home_page', uuid: user.id.to_s+'356a19'
         end
     end

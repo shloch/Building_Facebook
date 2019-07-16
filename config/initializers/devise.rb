@@ -262,7 +262,10 @@ Devise.setup do |config|
 
   #"final_rails_project" <--facebook
  # config.omniauth :facebook, '319099425697483', '[SECRET]', scope: 'email,user_birthday,read_stream', display: 'popup'
-  config.omniauth :facebook, "345431209713705", "-SECRET REMOVED-", callback_url: "http://localhost:3000/users/auth/facebook/callback"
+ callback_url = Rails.env.production? ? 'https://facials.herokuapp.com/users/auth/facebook/callback' : 'http://localhost:3000/users/auth/facebook/callback'
+  config.omniauth :facebook, "319099425697483", "1702f8e8d7c18130951a60cef02e46e0", callback_url:  callback_url
+
+  #config.omniauth :facebook, Rails.application.credentials.fb_api[:app_id], Rails.application.credentials.fb_api[:app_secret], callback_url: callback_url
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

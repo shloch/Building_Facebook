@@ -18,7 +18,7 @@
       <% if my_like_counts == 0 %>
         <!--not liked-->
         <%= link_to controller: 'posts', action: 'add_post_like', post_id: p.id, user_id: @user_id  do %>
-          <button type="button" class="btn btn-light">
+          <button type="button" class="btn btn-light btn-sm">
             <i class="fa fa-thumbs-up" aria-hidden="true"></i> Like
           </button>
         <% end %>
@@ -28,7 +28,7 @@
       <% end %>
       <button
               type="button"
-              class="btn btn-light"
+              class="btn btn-light btn-sm"
               data-toggle="collapse"
               data-target="#collapse<%= index %>"
               aria-expanded="false"
@@ -51,7 +51,7 @@
           <% p.post_comments.each do |comment| %>
             <div class="comment-row row">
               <div class="col-xl-2 d-flex justify-content-center">
-                <div class="user-circle-sm"> <%= gravatar_for comment.user %> </div>
+                <div class="user-circle-xs"> <%= gravatar_for comment.user %> </div>
               </div>
               <div class="col-xl-10">
                 <p>
@@ -74,7 +74,7 @@
           <hr>
           <div class="comment-row row">
             <div class="col-xl-2 d-flex justify-content-center">
-              <div class="user-circle-sm"> <%= gravatar_for @logged_user %> </div>
+              <div class="user-circle-xs"> <%= gravatar_for @logged_user %> </div>
             </div>
             <div class="col-xl-10">
               <!----comment form-------->
@@ -84,7 +84,7 @@
                   <%= hidden_field_tag 'post_id', p.id  %>
                   <%= hidden_field_tag 'user_id', @user_id %>
                   <div class="input-group-append">
-                    <%= f.submit "submit", class: "btn btn-outline-secondary" %>
+                    <%= f.submit "submit", class: "btn btn-outline-secondary btn-sm" %>
                   </div>
                 </div>
               <% end %>

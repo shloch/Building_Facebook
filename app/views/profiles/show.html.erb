@@ -1,4 +1,4 @@
-<% @you_and_friends_posts.each_with_index do |p,index| %>
+<% @user_posts.each_with_index do |p,index| %>
   <div class="card col-xl-12 col-lg-12 col-md-12">
     <div class="card-header"> <strong><%= p.author.name%> </strong>, <%= p.created_at.strftime("Posted on %B %d at %I:%M %p")%>  </div>
     <div class="card-body">
@@ -17,7 +17,7 @@
       <% end %>
       <% if my_like_counts == 0 %>
         <!--not liked-->
-        <%= link_to controller: 'posts', action: 'add_post_like', post_id: p.id, user_id: @logged_user.id  do %>
+        <%= link_to controller: 'posts', action: 'add_post_like', post_id: p.id, user_id: @user_id  do %>
           <button type="button" class="btn btn-light">
             <i class="fa fa-thumbs-up" aria-hidden="true"></i> Like
           </button>

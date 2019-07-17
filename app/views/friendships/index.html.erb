@@ -1,5 +1,49 @@
-<% @users.each do |u| %>
-  <li>
-    <%=u.name %> <%= link_to " send friend request", add_friend_friendship_path(u) %>
+<!----------------------------------------------------------------------------->
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Add new friends</a>
   </li>
-<% end %>
+  <li class="nav-item">
+    <%= link_to("Your Friends", your_friends_friendships_path, class:"nav-link") %>
+  </li>
+  <li class="nav-item">
+    <%= link_to("Pending Requests", pending_requests_friendships_path, class:"nav-link") %>
+  </li>
+</ul>
+<div class="friend-con ">
+  <% i = 0%>
+  <% @users.each do |u| %>
+    <% u_id = u.id %>
+    <% friend = (u.invited_friends.include?(@logged_user)) ||
+                (u.inviting_friends.include?(@logged_user))%>
+    <% if !friend %>
+      <% i = i + 1%>
+      <div class="row friend-row">
+        <div class="col-xl-2 ">
+          <div class="user-circle-xs"> <%= gravatar_for u %> </div>
+        </div>
+        <div class="col-xl-4 ">
+          <%=u.name %>
+        </div>
+        <div class="col-xl-6 ">
+          <%= link_to add_friend_friendship_path(u_id) do %>
+            <button
+                          type="button"
+                          class="btn btn-outline-secondary btn-sm"
+                        >
+              Send Friend Request
+            </button>
+          <% end %>
+        </div>
+      </div>
+      <hr />
+    <% end %>
+  <% end %>
+  <!--if i==0, it means, u've sent friend request
+ to everybody and nobody left to add as new friend-->
+  <% if i == 0 %>
+    <div class="row friend-row">
+      <h2> NO NEW USER LEFT TO ADD AS NEW FRIEND </h2>
+    </div>
+  <% end %>
+</div>

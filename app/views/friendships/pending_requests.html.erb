@@ -1,0 +1,70 @@
+<!----------------------------------------------------------------------------->
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <%= link_to("Add new firend", friendships_path, class:"nav-link") %>
+  </li>
+  <li class="nav-item">
+    <%= link_to("Your Friends", your_friends_friendships_path, class:"nav-link") %>
+  </li>
+  <li class="nav-item">
+    <%= link_to("Pending Requests", pending_requests_friendships_path, class:"nav-link active") %>
+  </li>
+</ul>
+<div class="friend-con ">
+  <!--------received requests--------->
+  <% if @requests_received.count != 0 %>
+    <h2> The following user(s) sent you a Friend Request</h2>
+    <% @requests_received.each do |friendship| %>
+      <div class="row friend-row">
+        <div class="col-xl-2 ">
+          <div class="user-circle-xs"><%= gravatar_for friendship.inviting_friend %></div>
+        </div>
+        <div class="col-xl-4 ">
+          <%=friendship.inviting_friend.name %>
+        </div>
+        <div class="col-xl-6 ">
+          <%= link_to accept_request_friendships_path(friendshipid: friendship) do %>
+            <button
+                          type="button"
+                          class="btn btn-outline-secondary btn-sm"
+                        >
+              Accept Friend Request
+            </button>
+          <% end %>
+          <%= link_to turn_down_friendship_path(friendship), method: :delete do %>
+            <button
+                          type="button"
+                          class="btn btn-outline-secondary btn-sm"
+                        >
+              Turn down
+            </button>
+          <% end %>
+        </div>
+      </div>
+      <hr />
+    <% end %>
+  <% else %>
+    <br/>
+    <br/>
+    <em>You have no friend requests sent to you at moment </em>
+  <% end %>
+  <br>
+  <br>
+  <!--------sent requests --------->
+  <% if @requests_sent.count != 0 %>
+    <h2> You have sent request to following users </h2>
+    <% @requests_sent.each do |f| %>
+      <div class="row friend-row">
+        <div class="col-xl-2 ">
+          <div class="user-circle-xs"><%= gravatar_for f.invited_friend %></div>
+        </div>
+        <div class="col-xl-4 ">
+          <%=f.invited_friend.name %>
+        </div>
+      </div>
+      <hr />
+    <% end %>
+  <% else %>
+    <!-----NO FRIEND REQUEST SENT BY YOU TO OTHERS----->
+  <% end %>
+</div>

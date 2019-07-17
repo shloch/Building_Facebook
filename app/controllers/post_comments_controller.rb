@@ -28,9 +28,7 @@ class PostCommentsController < ApplicationController
     end
   
     def update
-    end
-  
+    end    
       
-      
-  end
+end
   

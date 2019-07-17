@@ -23,31 +23,33 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto"></ul>
+      <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav"></ul>
         <!------login-------------->
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="form-row">
-            <div class="form-group col-md-5">
-              <%= f.label "Email or Phone", class: "form-text" %>
-              <%= f.text_field :login, autofocus: true, autocomplete: "email", class:"form-control form-control-sm mr-sm-2" %>
-              <% if devise_mapping.rememberable? %>
-                <%= f.check_box :remember_me %>
-                <%= f.label :remember_me, class:"form-text-s" %>
-              <% end %>
+        <div class="col-xl-6 col-md-6">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="form-row">
+              <div class="form-group col-md-5">
+                <%= f.label "Email or Phone", class: "form-text" %>
+                <%= f.text_field :login, autofocus: true, autocomplete: "email", class:"form-control form-control-sm mr-sm-2" %>
+                <% if devise_mapping.rememberable? %>
+                  <%= f.check_box :remember_me %>
+                  <%= f.label :remember_me, class:"form-text-s" %>
+                <% end %>
+              </div>
+              <div class="form-group col-md-5">
+                <%= f.label :password, class: "form-text" %>
+                <%= f.password_field :password, autocomplete: "current-password", class:"form-control form-control-sm mr-sm-2 form-text" %>
+                <%= link_to "Forgot password?", new_password_path(resource_name),class:"form-text2" %>
+              </div>
+              <div class="form-group button-group">
+                <button class="btn btn-primary my-2 my-sm-0 btn-sm" type="submit">
+                  Login
+                </button>
+              </div>
             </div>
-            <div class="form-group col-md-5">
-              <%= f.label :password, class: "form-text" %>
-              <%= f.password_field :password, autocomplete: "current-password", class:"form-control form-control-sm mr-sm-2 form-text" %>
-              <%= link_to "Forgot password?", new_password_path(resource_name),class:"form-text2" %>
-            </div>
-            <div class="form-group button-group">
-              <button class="btn btn-primary my-2 my-sm-0 btn-sm" type="submit">
-                Login
-              </button>
-            </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
         <!------login [END]-------------->
       </div>
     </nav>

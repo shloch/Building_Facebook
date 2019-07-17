@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
-  resources :post_comments, only: [:create]
+  resources :post_comments, only: [:create, :destroy]
   resources :profiles, only: [:show]
   resources :friendships, only: [:index, :destroy] do
     member do
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :posts, only: [:create] do
+  resources :posts, only: [:create, :destroy] do
     collection do
       get 'add_post_like'
     end

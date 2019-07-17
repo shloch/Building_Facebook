@@ -5,10 +5,12 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params) 
     if @post.save
       flash[:info] = "Post succesfully created"
-      redirect_to root_url
+      #redirect_to root_url
+      redirect_to_back_or_default
     else
-      flash[:info] = "Post not created"
-      render root_url
+      flash[:warning] = "Post could not be created : #{@post.errors.full_messages}"
+      #redirect_to root_url
+      redirect_to_back_or_default
     end
   end
 
@@ -20,15 +22,25 @@ class PostsController < ApplicationController
     if (!post_already_liked?(post,user))
       if (update_total_likes(post, user))
         flash[:info] = "Post succesfully liked"
-        redirect_to root_url
+        #redirect_to root_url
+        redirect_to_back_or_default
       else
         flash[:info] = "Like unsuccessful"
-        redirect_to root_url
+        #redirect_to root_url
+        redirect_to_back_or_default
       end
     else  
       flash[:warning] = "Post already liked by you"
-      redirect_to root_url
+      #redirect_to root_url
+      redirect_to_back_or_default
     end
+  end
+
+  def destroy
+    #render plain: "DESTROY POST :  #{params[:id]}"
+    Post.find(params[:id]).destroy
+    flash[:success] = "Post deleted successfully"
+    redirect_to_back_or_default
   end
 
   private

@@ -2,6 +2,13 @@ class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters, if: :devise_controller?
     before_action :get_logged_in_user_and_notification
     
+    def redirect_to_back_or_default(default = root_url)
+        if request.env["HTTP_REFERER"].present? and request.env["HTTP_REFERER"] != request.env["REQUEST_URI"]
+          redirect_to request.env["HTTP_REFERER"]
+        else
+          redirect_to default
+        end
+    end
 
     protected
 

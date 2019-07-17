@@ -19,7 +19,9 @@
           <div class="user-circle-xs"><%= gravatar_for friendship.invited_friend %></div>
         </div>
         <div class="col-xl-4 ">
-          <%=friendship.invited_friend.name %>
+          <a href="/profiles/<%=friendship.invited_friend.id%>" title="">
+            <%=friendship.invited_friend.name %>
+          </a>
         </div>
         <div class="col-xl-6 ">
           <%= link_to friendship_path(friendship.invited_friend), method: :delete do %>

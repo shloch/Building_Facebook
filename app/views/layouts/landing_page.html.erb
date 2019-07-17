@@ -29,17 +29,17 @@
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-row">
             <div class="form-group col-md-5">
-              <%= f.label "Email or Phone" %>
+              <%= f.label "Email or Phone", class: "form-text" %>
               <%= f.text_field :login, autofocus: true, autocomplete: "email", class:"form-control form-control-sm mr-sm-2" %>
               <% if devise_mapping.rememberable? %>
                 <%= f.check_box :remember_me %>
-                <%= f.label :remember_me %>
+                <%= f.label :remember_me, class:"form-text-s" %>
               <% end %>
             </div>
             <div class="form-group col-md-5">
-              <%= f.label :password %>
-              <%= f.password_field :password, autocomplete: "current-password", class:"form-control form-control-sm mr-sm-2" %>
-              <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+              <%= f.label :password, class: "form-text" %>
+              <%= f.password_field :password, autocomplete: "current-password", class:"form-control form-control-sm mr-sm-2 form-text" %>
+              <%= link_to "Forgot password?", new_password_path(resource_name),class:"form-text2" %>
             </div>
             <div class="form-group button-group">
               <button class="btn btn-primary my-2 my-sm-0 btn-sm" type="submit">
@@ -52,10 +52,10 @@
       </div>
     </nav>
     <!----nav---->
-    <div class="container">
-      <div class="d-flex justify-content-end row">
+    <div class="container-fluid">
+      <div class="d-flex justify-content-end row jumbotron">
         <%= yield %>
-        <div class="col-xl-5 col-md-5">
+        <div class="col-xl-6 col-md-6">
           <!------SIGN_UP-------------->
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "signUp"}) do |f| %>
             <%= devise_error_messages! %>
@@ -63,48 +63,48 @@
             <h5>Its a free and will always be free</h5>
             <div class="form-row">
               <div class="form-group col-md-6">
-                <%= f.label :email %>
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", id:"inputEmail4", placeholder:"Email" %>
+                <%= f.label :email, class: "form-text"  %>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control form-control-sm", id:"inputEmail4", placeholder:"Email" %>
               </div>
               <div class="form-group col-md-6">
-                <%= f.label "Username" %>
-                <%= f.text_field :name, class:"form-control", id:"username", placeholder:"Username" %>
+                <%= f.label "Username" , class: "form-text" %>
+                <%= f.text_field :name, class:"form-control form-control-sm", id:"username", placeholder:"Username" %>
               </div>
             </div>
             <div class="field">
-              <%= f.label :mobile %><br />
-              <%= f.text_field :mobile, autocomplete: "mobile", placeholder:"55555555", class:"form-control" %>
+              <%= f.label :mobile, class: "form-text" %>
+              <%= f.text_field :mobile, autocomplete: "mobile", placeholder:"55555555", class:"form-control form-control-sm" %>
             </div>
             <br/>
             <!----passwords--->
             <div class="form-row">
               <div class="form-group col-md-6">
-                <%= f.label :password %>
+                <%= f.label :password, class: "form-text" %>
                 <% if @minimum_password_length %>
                   <em>(<%= @minimum_password_length %> characters minimum)</em>
-                <% end %><br />
-                <%= f.password_field :password, autocomplete: "new-password" , class:"form-control", id:"inputPassword4", placeholder:"password"%>
+                <% end %>
+                <%= f.password_field :password, autocomplete: "new-password" , class:"form-control form-control-sm", id:"inputPassword4", placeholder:"password"%>
               </div>
               <div class="form-group col-md-6">
-                <%= f.label :password_confirmation %>
-                <%= f.password_field :password_confirmation, autocomplete: "new-password" , class:"form-control", id:"inputPassword4", placeholder:"password"%>
+                <%= f.label :password_confirmation , class: "form-text"%>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password" , class:"form-control form-control-sm", id:"inputPassword4", placeholder:"password"%>
               </div>
             </div>
             <!----passwords(end)--->
-            <div class="form-group row">
-              <%= f.label "Birthday", class:"col-2 col-form-label"  %>
-              <div class="col-10">
-                <%= f.date_field :date_of_birth, class:"form-control", id:"example-date-input", value:"2011-08-19" %>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <%= f.label "Birthday", class:"form-text"  %>
+                <%= f.date_field :date_of_birth, class:"form-control form-control-sm", id:"example-date-input", value:"2011-08-19" %>
               </div>
             </div>
             <div class="form-row">
               <div class="form-check-inline">
                 <%= f.radio_button :gender, id:"M", value:"M" %>
-                <%= label :gender, 'Male', class:"form-check-label" %>
+                <%= label :gender, 'Male', class:"form-check-label form-text-3" %>
               </div>
               <div class="form-check-inline">
                 <%= f.radio_button :gender, id:"F", value:"F" %>
-                <%= label :gender, 'Female', class:"form-check-label" %>
+                <%= label :gender, 'Female', class:"form-check-label form-text-3" %>
               </div>
             </div>
             <div class="form-group"></div>

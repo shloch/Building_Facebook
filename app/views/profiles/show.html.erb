@@ -62,7 +62,6 @@
                   <%=  strip_tags(comment.comment_text) %> <br>
                   <% if p.author == @logged_user %>
                     <!--if COMMENT OWNER-->
-                    <% session[:return_to] ||= request.referer %>
                     <%= link_to post_comment_path(comment), class: "small-links", method: :delete do %>
                       <i class="fa fa-trash"></i> <em>Delete comment</em>
                     <% end %>
@@ -82,7 +81,7 @@
                 <div class="input-group mb-3">
                   <%= f.text_field :comment_text, class: 'form-control', placeholder: "Add your comment", "aria-label": "Recipient's username", "aria-describedby": "basic-addon2"  %>
                   <%= hidden_field_tag 'post_id', p.id  %>
-                  <%= hidden_field_tag 'user_id', @user_id %>
+                  <%= hidden_field_tag 'user_id', @logged_user.id %>
                   <div class="input-group-append">
                     <%= f.submit "submit", class: "btn btn-outline-secondary btn-sm" %>
                   </div>

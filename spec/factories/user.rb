@@ -16,5 +16,6 @@ FactoryBot.define do
       password { 'password' }
       mobile { '90909090' }
       email { 'john@example.com' }
+      date_of_birth {  DateTime.civil(2010, 01, 10, 0, 0, 0, 0) }
     end
   end

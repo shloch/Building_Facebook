@@ -13,8 +13,7 @@ class User < ApplicationRecord
   has_many :like_posts, :dependent => :destroy
 
   validates :mobile,:presence => true,
-                 :numericality => true,
-                 :length => { :minimum => 6, :maximum => 15 }
+                 :length => { :minimum => 6, :maximum => 20 }
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

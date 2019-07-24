@@ -85,11 +85,11 @@
                 <% if @minimum_password_length %>
                   <em>(<%= @minimum_password_length %> characters minimum)</em>
                 <% end %>
-                <%= f.password_field :password, autocomplete: "new-password" , class:"form-control form-control-sm", id:"inputPassword4", placeholder:"password"%>
+                <%= f.password_field :password, autocomplete: "new-password" , class:"form-control form-control-sm", id:"inputPassword", placeholder:"password"%>
               </div>
               <div class="form-group col-md-6">
                 <%= f.label :password_confirmation , class: "form-text"%>
-                <%= f.password_field :password_confirmation, autocomplete: "new-password" , class:"form-control form-control-sm", id:"inputPassword4", placeholder:"password"%>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password" , class:"form-control form-control-sm", id:"inputPassword2", placeholder:"password"%>
               </div>
             </div>
             <!----passwords(end)--->

@@ -48,8 +48,6 @@ RSpec.feature "Navigation should be succesful between pages", type: :feature do
     find('form.signUp') #signup form
     expect(page).to have_content('Welcome to FACEBOOK')
     expect(page).to have_content('Create a new account')
-    #url = URI.parse(current_url)
-    #expect(url).to include("staticpages/home")
   end
 
 

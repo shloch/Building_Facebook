@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.feature "Navigation should be succesful between pages", type: :feature do
+RSpec.feature "Creating a post", type: :feature do
   before :each do
     @user = FactoryBot.create(:user1) 
     visit root_path

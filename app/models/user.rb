@@ -59,7 +59,7 @@ class User < ApplicationRecord
       
       #byebug
       user.save
-      p auth.info.birthday
+      #p auth.info.birthday
     end
   end
 

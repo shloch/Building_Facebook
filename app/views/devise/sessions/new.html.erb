@@ -1,10 +1,9 @@
 <h2>Log in</h2>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
   <div  class="alert alert-danger" role="alert">
-    <p>
-      The login details provided are incorrect
-    </p>
+    <% if flash[:alert] %>
+      <%= flash[:alert] %>
+    <% end %>
   </div>
   <div class="form-group">
     <%= f.label :login %>(mobile/email)<br />

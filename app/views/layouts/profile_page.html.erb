@@ -36,11 +36,11 @@
                   </p>
                   <p class="card-text">
                     <i class="fa fa-mobile" aria-hidden="true"></i>
-                    Mobile: <strong> <%= @profile_user.mobile%> </strong>
+                    Mobile: <strong> <%= @profile_user.mobile if  @profile_user.date_of_birth != '000-000' %> </strong>
                   </p>
                   <p class="card-text">
                     <i class="fa fa-birthday-cake" aria-hidden="true"></i>
-                    Birthday : <strong>  <%= @profile_user.date_of_birth.strftime("%B %d, %Y")%> </strong>
+                    Birthday : <strong>  <%= @profile_user.date_of_birth.strftime("%B %d, %Y") if  !@profile_user.date_of_birth.nil? %> </strong>
                   </p>
                   <p class="card-text">
                     <i class="fa fa-calendar" aria-hidden="true"></i>

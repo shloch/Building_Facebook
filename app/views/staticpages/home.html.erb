@@ -7,6 +7,6 @@
     <%= button_to('Logout', destroy_user_session_path, method: :delete, class:"btn btn-outline-secondary btn-sm") %>
     <%= button_to('Edit Account', edit_user_registration_path, class:"btn btn-outline-secondary btn-sm") %>
   <% else %>
-    <%= button_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: "btn btn-outline-secondary btn-sm" %>
+    <%= button_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: "btn btn-outline-secondary btn-sm", name:"facebookLogin" %>
   <% end %>
 </div>

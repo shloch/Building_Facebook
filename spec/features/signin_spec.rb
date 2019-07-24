@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.feature "SigninTests", type: :feature do
+RSpec.feature "SigninTests : ", type: :feature do
   before :each do
     #@user = create(:user1)
     @user = FactoryBot.create(:user1) 
@@ -12,4 +12,6 @@ RSpec.feature "SigninTests", type: :feature do
     expect(page).to have_content('Signed in successfully')
     
   end
+
+
 end

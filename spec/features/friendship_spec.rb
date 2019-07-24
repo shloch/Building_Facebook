@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.feature "Send and accept friend requests", type: :feature do
+RSpec.feature "FRIENDSHIP: ", type: :feature do
   before :each do
     @user = FactoryBot.create(:user1) 
     @user2 = FactoryBot.create(:user2) 

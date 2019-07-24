@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.feature "SignUpTests", type: :feature do
+RSpec.feature "SignUpTests:", type: :feature do
   before :each do
     #@user = create(:user1)
     #@user = FactoryBot.create(:user1) 

@@ -60,10 +60,10 @@
                 <div class="card-body">
                   <h6 class="card-subtitle mb-2 text-muted">Friends</h6>
                   <div class="friend-box-con">
-                    <% if @friends.count !=  0 %>
-                      <% @friends.each do |friend| %>
-                        <a href="/profiles/<%=friend.id%>" title="<%=friend.name%>">
-                          <div class="friend-box"> <%= gravatar_for friend %>  </div>
+                    <% if @friendships.count !=  0 %>
+                      <% @friendships.each do |friendship| %>
+                        <a href="/profiles/<%=friendship.invited_friend.id%>" title="<%=friendship.invited_friend.name%>">
+                          <div class="friend-box"> <%= gravatar_for friendship.invited_friend %>  </div>
                         </a>
                       <% end %>
                     <% else %>

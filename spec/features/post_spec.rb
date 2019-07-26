@@ -19,7 +19,6 @@ RSpec.feature "Creating a post :", type: :feature do
     redirected_url = URI.parse(current_url)
     expect(present_url).to eq(redirected_url)
 
-
   end
 
   it "should send send warning message when posting with wrong/blank data" do 

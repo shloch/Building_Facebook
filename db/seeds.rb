@@ -13,10 +13,12 @@
   email = Faker::Internet.email
   password = "password"
   mobile = Faker::PhoneNumber.cell_phone
+  date_of_birth = Faker::Time.between(18.years.ago, 22.years.ago)
   User.create!(name:  name,
                email: email,
                password: password,
                mobile: mobile,
+               date_of_birth: date_of_birth,
                password_confirmation: password,)
   end
 

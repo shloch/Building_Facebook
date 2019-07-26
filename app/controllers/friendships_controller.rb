@@ -8,8 +8,12 @@ class FriendshipsController < ApplicationController
 
     def add_friend
         friend = User.find(params[:id].to_i)
-        current_user.sent_invites.create(invited_friend:friend)
-        flash[:info] = "Friend request sent successfully"  
+        if (friend != @logged_user)
+            current_user.sent_invites.create(invited_friend:friend)
+            flash[:info] = "Friend request sent successfully"  
+        else 
+            flash[:warning] = "You can't sent friendship to yourself" 
+        end
         redirect_to friendships_path
     end
 
@@ -24,11 +28,18 @@ class FriendshipsController < ApplicationController
 
     def accept_request
         @friendship = Friendship.find(params[:friendshipid])
-        @friendship.status = 'accepted'
-        @friendship.save
-        #file new query
-        Friendship.create(inviting_id:@friendship.invited_id, invited_id:@friendship.inviting_id, status:'accepted')
-        flash[:info] = "CONGRATS !!.....You have new friend #{@friendship.invited_friend.name}"  
+        friendID = params[:friendID]
+        if (@friendship.invited_id == @logged_user && @friendship.inviting_id == friendID) #only accept if request was sent to u
+            @friendship.status = 'accepted'
+            @friendship.save
+        
+            #file new query
+            Friendship.create(inviting_id:@friendship.invited_id, invited_id:@friendship.inviting_id, status:'accepted')
+            flash[:info] = "CONGRATS !!.....You have new friend #{@friendship.invited_friend.name}" 
+        else 
+            flash[:warning] = "WARNING !!....YOU CANNOT ACCEPT REQUEST NOT SENT TO YOU" 
+        end
+         
         redirect_to your_friends_friendships_path
 
     end

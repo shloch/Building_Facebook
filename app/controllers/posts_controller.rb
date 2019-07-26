@@ -38,8 +38,13 @@ class PostsController < ApplicationController
 
   def destroy
     #render plain: "DESTROY POST :  #{params[:id]}"
-    Post.find(params[:id]).destroy
-    flash[:success] = "Post deleted successfully"
+    post = Post.find(params[:id])
+    if (post.author == @logged_user)
+      post.destroy
+      flash[:success] = "Post deleted successfully"
+    else  
+      flash[:warning] = "WARNING !!! -- You are not the author of this post"
+    end
     redirect_to_back_or_default
   end
 

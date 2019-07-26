@@ -23,7 +23,7 @@
           <%=friendship.inviting_friend.name %>
         </div>
         <div class="col-xl-6 ">
-          <%= link_to accept_request_friendships_path(friendshipid: friendship) do %>
+          <%= link_to accept_request_friendships_path(friendshipid: friendship, friendID: friendship.inviting_friend.id) do %>
             <button
                           type="button"
                           class="btn btn-outline-secondary btn-sm"

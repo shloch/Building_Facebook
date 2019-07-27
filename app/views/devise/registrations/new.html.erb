@@ -1,29 +1,54 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "signUp"}) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <h1>Create a new account</h1>
+  <h5>Its a free and will always be free</h5>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", id:"inputEmail4", placeholder:"Email" %>
+    </div>
+    <div class="form-group col-md-6">
+      <%= f.label "Username" %>
+      <%= f.text_field :name, class:"form-control", id:"username", placeholder:"Username" %>
+    </div>
   </div>
-
   <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.label :mobile %><br />
+    <%= f.text_field :mobile, autocomplete: "mobile", placeholder:"55555555", class:"form-control" %>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <br/>
+  <!----passwords--->
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: "new-password" , class:"form-control", id:"inputPassword", placeholder:"password"%>
+    </div>
+    <div class="form-group col-md-6">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" , class:"form-control", id:"inputPassword2", placeholder:"password"%>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <!----passwords(end)--->
+  <div class="form-group row">
+    <%= f.label "Birthday", class:"col-2 col-form-label"  %>
+    <div class="col-10">
+      <%= f.date_field :date_of_birth, class:"form-control", id:"example-date-input", value:"2011-08-19" %>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-check-inline">
+      <%= f.radio_button :gender, id:"M", value:"M" %>
+      <%= label :gender, 'Male', class:"form-check-label" %>
+    </div>
+    <div class="form-check-inline">
+      <%= f.radio_button :gender, id:"F", value:"F" %>
+      <%= label :gender, 'Female', class:"form-check-label" %>
+    </div>
+  </div>
+  <div class="form-group d-flex justify-content-center">
+    <button type="submit" class="btn btn-success col-md-5">
+      Sign up
+    </button>
   </div>
 <% end %>
-
 <%= render "devise/shared/links" %>

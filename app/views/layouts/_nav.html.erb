@@ -1,0 +1,116 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light nav-color">
+  <a class="navbar-brand" href="/">Facebook</a>
+  <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <form class="form-inline my-2 my-lg-0 col-xl-5">
+      <div class="form-group has-search col-xl-12">
+        <span class="fa fa-search form-control-feedback"></span>
+        <input
+              type="text"
+              class="form-control form-control-sm col-xl-12"
+              placeholder="Search"
+            />
+        </div>
+      </form>
+      <ul class="navbar-nav mr-auto ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link nav-link2" href="/profiles/<%=@logged_user.id%>" title="view Profile">
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            <%= @logged_user.name%>'s Profile <span class="sr-only">(current)</span></a
+            >
+        </li>
+        <li class="nav-item ">
+          <%= link_to("Home", dashboard_home_page_path(:uuid => "#{@logged_user.id.to_s}356a19"), class: "nav-link nav-link2") %> <span class="sr-only">(current)</span>
+        </li>
+        <li class="nav-item">
+          <%= link_to('Logout', destroy_user_session_path, class: "nav-link nav-link2", method: :delete) %> <span class="sr-only">(current)</span>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+              class="nav-link"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              data-target = "test-drop"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+            <i class="fa fa-bell" aria-hidden="true"></i>
+            <!---notification---->
+            <% if @requests_received.count != 0 %>
+              <span class="badge badge-notify" style="font-size:10px;">
+                <%= @requests_received.count %> <!--in RED-->
+              </span>
+            <% end %>
+            <!---notification---->
+          </a>
+          <div id="test-drop" class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <div class="row friend-title-con">
+              <div class="col-xl-6">
+                <p class="text-f text-left">Other notifications</p>
+              </div>
+              <div class="col-xl-6">
+                <p class="text-f text-right">
+                  <a href="/profiles/<%=@logged_user.id%>">
+                    Profile
+                  </a>
+                  |
+                  <a href="#">
+                    Settings
+                  </a>
+                </p>
+              </div>
+            </div>
+            <div class="friend-con"> <!--other notif content here.. --></div>
+            <div class="row friend-title-con">
+              <div class="col-xl-8">
+                <p class="text-f text-left">Friend Request(s): <%= @requests_received.count %> </p>
+              </div>
+            </div>
+            <% if @requests_received.count != 0 %>
+              <div class="friend-con ">
+                <!----friend request--->
+                <% @requests_received.each do |friendship| %>
+                  <div class="row friend-row">
+                    <div class="col-xl-2 ">
+                      <div class="user-circle-xs"></div>
+                    </div>
+                    <div class="col-xl-4 ">
+                      <%=friendship.inviting_friend.name %>
+                    </div>
+                    <div class="col-xl-6 ">
+                      <%= link_to accept_request_friendships_path(friendshipid: friendship) do %>
+                        <button type="button" class="btn btn-outline-secondary btn-sm">
+                          Add Friend
+                        </button>
+                      <% end %>
+                      <%= link_to turn_down_friendship_path(friendship), method: :delete do %>
+                        <button type="button" class="btn btn-outline-secondary btn-sm">
+                          Remove
+                        </button>
+                      <% end %>
+                    </div>
+                    <!----friend request[end]--->
+                  </div>
+                <% end %>
+                <hr />
+        </div>
+      <% else %>
+        You have no friend requests sent to you at moment 
+      <% end %>
+    </div>
+  </li>
+</ul>
+</div>
+</nav>

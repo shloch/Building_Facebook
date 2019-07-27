@@ -1,0 +1,97 @@
+<% @you_and_friends_posts.each_with_index do |p,index| %>
+  <div class="card col-xl-12 col-lg-12 col-md-12">
+    <div class="card-header"> <strong><%= p.author.name%> </strong>, <%= p.created_at.strftime("Posted on %B %d at %I:%M %p")%>  </div>
+    <div class="card-body">
+      <p>
+        <%= sanitize p.post_text, tags: %w(strong em a)%>
+      </p>
+      <hr>
+      <span>
+        <%= pluralize(p.like_total, 'Like')  %>
+      </span>
+    </div>
+    <div class="card-footer">
+      <% my_like_counts = 0 %>
+      <% p.like_posts.as_json.each do |each_like| %>
+        <%  my_like_counts += 1  if each_like['user_id'] == @logged_user.id %> <!--  already like-->
+      <% end %>
+      <% if my_like_counts == 0 %>
+        <!--not liked-->
+        <%= link_to controller: 'posts', action: 'add_post_like', post_id: p.id, user_id: @logged_user.id  do %>
+          <button type="button" class="btn btn-light btn-sm">
+            <i class="fa fa-thumbs-up" aria-hidden="true"></i> Like
+          </button>
+        <% end %>
+      <% else %>
+        <!--already like-->
+        <span class="already-like-thumbs" > You Liked</span>
+      <% end %>
+      <button
+              type="button"
+              class="btn btn-light btn-sm"
+              data-toggle="collapse"
+              data-target="#collapse<%= index %>"
+              aria-expanded="false"
+              aria-controls="collapse<%= index %>"
+            >
+        <i class="fa fa-comments" aria-hidden="true"></i>
+        See comments
+      </button>
+      <% if p.author == @logged_user %>
+        <!--if post owner-->
+        <% session[:return_url] ||= request.referer %>
+        <%= link_to post_path(p), method: :delete do %>
+          <button type="button" class="btn btn-light">
+            <i class="fa fa-trash"></i> Delete Post
+          </button>
+        <% end %>
+      <% end %>
+      <div class="collapse" id="collapse<%= index %>">
+        <div class="card card-body">
+          <% p.post_comments.each do |comment| %>
+            <div class="comment-row row">
+              <div class="col-xl-2 d-flex justify-content-center">
+                <div class="user-circle-xs"> <%= gravatar_for comment.user %> </div>
+              </div>
+              <div class="col-xl-10">
+                <p>
+                  <strong> <%=comment.user.name %> </strong>
+                  <em><%= comment.created_at.strftime(", %B %d at %I:%M %p")%> </em>
+                </p>
+                <p>
+                  <%=  strip_tags(comment.comment_text) %> <br>
+                  <% if p.author == @logged_user %>
+                    <!--if COMMENT OWNER-->
+                    <% session[:return_to] ||= request.referer %>
+                    <%= link_to post_comment_path(comment), class: "small-links", method: :delete do %>
+                      <i class="fa fa-trash"></i> <em>Delete comment</em>
+                    <% end %>
+                  <% end %>
+                </p>
+              </div>
+            </div>
+          <% end %>
+          <div class="comment-row row col-xl-11">
+            <div class="col-xl-2 d-flex justify-content-center">
+              <div class="user-circle-xs"> <%= gravatar_for @logged_user %> </div>
+            </div>
+            <div class="col-xl-10">
+              <!----comment form-------->
+              <%= form_for(@post_comment) do |f| %>
+                <div class="input-group mb-3">
+                  <%= f.text_field :comment_text, class: 'form-control form-control-sm', placeholder: "Add your comment", "aria-label": "Recipient's username", "aria-describedby": "basic-addon2"  %>
+                  <%= hidden_field_tag 'post_id', p.id  %>
+                  <%= hidden_field_tag 'user_id', @user_id %>
+                  <div class="input-group-append">
+                    <%= f.submit "submit", class: "btn btn-outline-secondary btn-sm" %>
+                  </div>
+                </div>
+              <% end %>
+              <!----comment form [end]-------->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

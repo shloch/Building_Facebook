@@ -1,0 +1,12 @@
+<% provide(:title, 'Home') %>
+<div class="center text-center col-xl-6 col-md-6">
+  <h1>Welcome to FACEBOOK</h1>
+  <% user = current_user()  %>
+  <% if user_signed_in? %>
+    <div>Signed in as... <b><%= current_user.email %></b></div>
+    <%= button_to('Logout', destroy_user_session_path, method: :delete, class:"btn btn-outline-secondary btn-sm") %>
+    <%= button_to('Edit Account', edit_user_registration_path, class:"btn btn-outline-secondary btn-sm") %>
+  <% else %>
+    <%= button_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: "btn btn-outline-secondary btn-sm", name:"facebookLogin" %>
+  <% end %>
+</div>

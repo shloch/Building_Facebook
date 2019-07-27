@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_01_165119) do
+ActiveRecord::Schema.define(version: 2019_07_15_150856) do
 
   create_table "friendships", force: :cascade do |t|
     t.text "status", default: "pending"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2019_07_01_165119) do
     t.integer "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "like_total", default: 0
     t.index ["author_id"], name: "index_posts_on_author_id"
   end
 
@@ -58,6 +59,12 @@ ActiveRecord::Schema.define(version: 2019_07_01_165119) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "date_of_birth"
+    t.string "gender"
+    t.string "mobile"
+    t.string "provider"
+    t.string "uid"
+    t.text "image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

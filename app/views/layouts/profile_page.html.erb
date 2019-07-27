@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <%= render 'layouts/bootstrap_calls' %>
+    <%= render 'layouts/rails_default' %>
+    <%= render 'layouts/shim' %>
+    <title>Facebook Profile</title>
+  </head>
+  <body>
+    <%= render 'layouts/nav' %>
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
+    <div class="row">
+      <div class="col-xl-10 col-lg-10 d-flex justify-content-center">
+        <div class="col-xl-11 col-lg-11">
+          <div class="row profile-cover">
+            <div class="user-circle"> <%= gravatar_for @profile_user %>  </div>
+          </div>
+          <div class="row">
+            <div class="col-xl-4 col-lg-4">
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Profile</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Profile Info</h6>
+                  <p class="card-text">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    username: <strong> <%= @profile_user.name%> </strong>
+                  </p>
+                  <p class="card-text">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    Email: <strong> <%= @profile_user.email%> </strong>
+                  </p>
+                  <p class="card-text">
+                    <i class="fa fa-mobile" aria-hidden="true"></i>
+                    Mobile: <strong> <%= @profile_user.mobile if  @profile_user.date_of_birth != '000-000' %> </strong>
+                  </p>
+                  <p class="card-text">
+                    <i class="fa fa-birthday-cake" aria-hidden="true"></i>
+                    Birthday : <strong>  <%= @profile_user.date_of_birth.strftime("%B %d, %Y") if  !@profile_user.date_of_birth.nil? %> </strong>
+                  </p>
+                  <p class="card-text">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                    joined in : <strong>  <%= @profile_user.created_at.strftime("%B %d, %Y")%> </strong>
+                  </p>
+                  <a href="#" class="card-link"
+                    ><button
+                      type="button"
+                      class="btn btn-outline-primary btn-sm"
+                    >
+                      Edit Profile info
+                    </button></a
+                  >
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h6 class="card-subtitle mb-2 text-muted">Friends</h6>
+                  <div class="friend-box-con">
+                    <% if @friendships.count !=  0 %>
+                      <% @friendships.each do |friendship| %>
+                        <a href="/profiles/<%=friendship.invited_friend.id%>" title="<%=friendship.invited_friend.name%>">
+                          <div class="friend-box"> <%= gravatar_for friendship.invited_friend %>  </div>
+                        </a>
+                      <% end %>
+                    <% else %>
+                      <em> User have no friends Yet </em>
+                    <% end %>
+                  </div>
+                  <% if @logged_user == @profile_user %>
+                    <a href="/friendships" class="card-link"
+                    ><button
+                      type="button"
+                      class="btn btn-outline-primary btn-sm"
+                    >
+                        Add New Friends
+                      </button></a
+                  >
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-8 col-lg-8">
+              <% if @logged_user == @profile_user %>
+                <%= render 'layouts/posting_block' %>
+              <% end %>
+              <%= yield %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-2 col-lg-2"></div>
+    </div>
+    <%= render 'layouts/footer_scripts' %>
+  </body>
+</html>

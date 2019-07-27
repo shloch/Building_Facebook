@@ -1,0 +1,45 @@
+<!----------------------------------------------------------------------------->
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <%= link_to("Add new firend", friendships_path, class:"nav-link") %>
+  </li>
+  <li class="nav-item">
+    <%= link_to("Your Friends", your_friends_friendships_path, class:"nav-link active") %>
+  </li>
+  <li class="nav-item">
+    <%= link_to("Pending Requests", pending_requests_friendships_path, class:"nav-link") %>
+  </li>
+</ul>
+<div class="friend-con ">
+  <!--------Friend List--------->
+  <% if @friends.count != 0 %>
+    <% @friends.each do |friendship| %>
+      <div class="row friend-row">
+        <div class="col-xl-2 ">
+          <div class="user-circle-xs"><%= gravatar_for friendship.invited_friend %></div>
+        </div>
+        <div class="col-xl-4 ">
+          <a href="/profiles/<%=friendship.invited_friend.id%>" title="">
+            <%=friendship.invited_friend.name %>
+          </a>
+        </div>
+        <div class="col-xl-6 ">
+          <%= link_to friendship_path(friendship.invited_friend), method: :delete do %>
+            <button
+                          type="button"
+                          class="btn btn-outline-secondary btn-sm"
+                        >
+              Delete as Friend
+            </button>
+          <% end %>
+        </div>
+      </div>
+      <hr />
+    <% end %>
+  <% else %>
+    <!--------You have no friends yet--------->
+    <br/>
+    <br/>
+    <em>YOU HAVE NO FRIENDS YET !!! </em>
+  <% end %>
+</div>

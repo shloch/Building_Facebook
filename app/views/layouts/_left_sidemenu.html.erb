@@ -1,0 +1,20 @@
+<ul class="nav flex-column">
+  <li class="nav-item">
+    <a class="nav-link" href="/profiles/<%=@logged_user.id%>" title="view Profile">
+      <i class="fa fa-user-circle" aria-hidden="true"></i>
+      <%= @logged_user.name%></a
+            >
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="<%= dashboard_home_page_path(:uuid => "#{@logged_user.id.to_s}356a19")%>" title="visit Newsfeed">
+      <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+      News feed</a
+            >
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/friendships" title="view frienships">
+      <i class="fa fa-users" aria-hidden="true"></i>
+      Friendships</a
+            >
+  </li>
+</ul>

@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap");
+body {
+  overflow-x: hidden;
+  font-family: "Nanum Gothic", sans-serif;
+}
+
+.jumbotron {
+  margin-bottom: 0px !important;
+}
+
+.nav-color {
+  background-color: #44619d !important;
+  color: white !important;
+}
+
+.navbar-brand,
+.nav-link2 {
+  color: white !important;
+}
+
+.button-group {
+  padding-top: 33px;
+}
+
+.container {
+  background-color: #e9ebee;
+}
+
+/* Styles for wrapping the search box */
+
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+
+.r-con {
+  background-color: #e9ebee !important;
+  min-height: 100vh;
+  padding: 10px 0px;
+}
+
+.user-circle {
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+  //background-color: #44619d;
+  .gravatar {
+    width: inherit;
+    border-radius: inherit;
+  }
+}
+
+.user-circle-sm {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  //background-color: #44619d;
+  align-self: center;
+  .gravatar {
+    width: inherit;
+    border-radius: inherit;
+  }
+}
+
+.user-circle-xs {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  //background-color: #44619d;
+  .gravatar {
+    width: inherit;
+    border-radius: inherit;
+  }
+}
+
+.card {
+  margin-top: 10px;
+  padding: 0px 0px;
+  hr {
+    margin: 0px !important;
+  }
+  p {
+    margin: 0px;
+  }
+}
+
+.comment-row {
+  padding: 10px 0px;
+}
+
+/*dropdown menu*/
+
+.dropdown-menu {
+  width: 440px;
+  left: -395px;
+}
+
+.text-f {
+  margin-bottom: 0px;
+  font-size: small;
+}
+
+.friend-title-con {
+  width: inherit;
+  margin-left: 0px;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  border-left: none;
+  border-right: none;
+}
+
+.friend-con {
+  width: inherit;
+  min-height: 60px;
+  background-color: #f5f6f7;
+}
+
+.friend-row {
+  display: flex;
+  align-items: center;
+  min-height: inherit;
+  width: inherit;
+  margin-left: 0px;
+}
+
+.friend-con hr {
+  margin: 0px;
+}
+
+.profile-cover {
+  height: 350px;
+  align-content: flex-end;
+  background-color: #aaa;
+  background-image: url("https://picsum.photos/1000/349?random=1");
+  background-repeat: no-repeat;
+}
+
+.profile-cover .user-circle {
+  margin: 14px;
+}
+
+.friend-box-con {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.friend-box {
+  height: 70px;
+  width: 70px;
+  background-color: #44619d;
+  box-sizing: border-box;
+  margin: 4px;
+  img {
+    width: inherit;
+  }
+}
+
+.sidebar .nav-link {
+  color: black !important;
+  font-size: medium;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #f5f6f7;
+}
+
+.badge-notify {
+  background: #c35050;
+  position: relative;
+  top: -12px;
+  left: -9px;
+}
+
+//------------------------------------------
+.already-like-thumbs {
+  color: #007bff;
+}
+
+.small-links {
+  color: #44619d;
+  font-size: 0.75em;
+}
+
+//------------------------------------------
+
+/*form css*/
+
+.form-text {
+  font-size: small;
+}
+
+.form-text2 {
+  color: #f5f6f7;
+  font-size: small;
+}
+
+.form-text-s {
+  font-size: small;
+  display: inline;
+}
+
+.form-text-3 {
+  font-size: small;
+  padding-left: 2px;
+}
+
+// form.new_user {
+//     height: 82px;
+// }
+
+#exampleFormControlTextarea1 {
+  height: 50px;
+}

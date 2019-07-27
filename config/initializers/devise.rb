@@ -40,7 +40,7 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  # config.authentication_keys = [:email]
+   config.authentication_keys = [:login]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -259,7 +259,13 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+
+  #"final_rails_project" <--facebook
+ # config.omniauth :facebook, '319099425697483', '[SECRET]', scope: 'email,user_birthday,read_stream', display: 'popup'
+ callback_url = Rails.env.production? ? 'https://nameless-bastion-79370.herokuapp.com/users/auth/facebook/callback' : 'http://localhost:3000/users/auth/facebook/callback'
+  config.omniauth :facebook, "319099425697483", "1702f8e8d7c18130951a60cef02e46e0", callback_url:  callback_url
+
+  #config.omniauth :facebook, Rails.application.credentials.fb_api[:app_id], Rails.application.credentials.fb_api[:app_secret], callback_url: callback_url
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
@@ -268,6 +274,7 @@ Devise.setup do |config|
   # config.warden do |manager|
   #   manager.intercept_401 = false
   #   manager.default_strategies(scope: :user).unshift :some_external_strategy
+  #     manager.failure_app = MyFailureApp
   # end
 
   # ==> Mountable engine configurations

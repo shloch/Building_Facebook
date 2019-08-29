@@ -15,7 +15,12 @@ Putting together some of the core features of the platform :
 
 ## Live Demo
 
-- _https://nameless-bastion-79370.herokuapp.com/staticpages/home_
+- _https://nameless-bastion-79370.herokuapp.com/staticpages/home_  
+
+## Screenshot
+
+![alt text](https://github.com/shloch/Building_Facebook/blob/controllers/DOCS/screenshot_facebook.png)
+
 
 ## Contributors
 

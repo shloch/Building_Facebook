@@ -21,6 +21,30 @@ Putting together some of the core features of the platform :
 
 ![alt text](https://github.com/shloch/Building_Facebook/blob/master/DOCS/screenshot_facebook.png)
 
+## setting up
+
+- clone project <br/>
+`git clone https://github.com/shloch/Blogging_app_rails`
+
+- enter project directory <br/>
+`cd Blogging_app_rails`
+
+- run the database migrations <br/>
+`rails db:migrate`
+
+- run the application locally (start the rails server) <br/>
+`rails server`
+
+- view on your browser <br/>
+open `http://127.0.0.1:3000` on browser
+
+- open project with VSCode, edit and open a pull request
+
+### Requirements
+
+- Rails 5.2
+- ruby 2.6.2 
+
 
 ## Contributors
 

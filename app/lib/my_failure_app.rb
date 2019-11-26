@@ -1,5 +1,5 @@
 class MyFailureApp < Devise::FailureApp
-  def route(scope)
-	:root
+  def route(_scope)
+    :root
   end
 end

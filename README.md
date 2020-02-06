@@ -19,7 +19,7 @@ Putting together some of the core features of the platform :
 
 ## Screenshot
 
-![alt text](https://github.com/shloch/Building_Facebook/blob/master/DOCS/screenshot_facebook.png)
+![alt text](https://github.com/shloch/Building_Facebook/blob/master/DOCS/screenshot.jpg)
 
 ## setting up
 

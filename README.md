@@ -20,13 +20,13 @@ Putting together some of the core features of the platform :
 ## Screenshot
 
 ### Signup + Login
-![alt text](https://github.com/shloch/Building_Facebook/blob/controllers/DOCS/facebook1.gif)
+![alt text](https://github.com/shloch/Building_Facebook/blob/master/DOCS/facebook1.gif)
 
 ### Posting + liking + commenting
-![alt text](https://github.com/shloch/Building_Facebook/blob/controllers/DOCS/facebook2.gif)
+![alt text](https://github.com/shloch/Building_Facebook/blob/master/DOCS/facebook2.gif)
 
 ### sending friend Request + Profile page 
-![alt text](https://github.com/shloch/Building_Facebook/blob/controllers/DOCS/facebook2.gif)
+![alt text](https://github.com/shloch/Building_Facebook/blob/master/DOCS/facebook3.gif)
 
 ## setting up
 

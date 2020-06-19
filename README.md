@@ -19,7 +19,14 @@ Putting together some of the core features of the platform :
 
 ## Screenshot
 
-![alt text](https://github.com/shloch/Building_Facebook/blob/master/DOCS/screenshot.jpg)
+### Signup + Login
+![alt text](https://github.com/shloch/Building_Facebook/blob/controllers/DOCS/facebook1.gif)
+
+### Posting + liking + commenting
+![alt text](https://github.com/shloch/Building_Facebook/blob/controllers/DOCS/facebook2.gif)
+
+### sending friend Request + Profile page 
+![alt text](https://github.com/shloch/Building_Facebook/blob/controllers/DOCS/facebook2.gif)
 
 ## setting up
 
@@ -44,6 +51,10 @@ open `http://127.0.0.1:3000` on browser
 
 - Rails 5.2
 - ruby 2.6.2 
+
+## future features
+- implementing the search functionality on posts and user profile
+- integrating video and image posts
 
 
 ## Contributors

@@ -59,5 +59,12 @@ open `http://127.0.0.1:3000` on browser
 
 ## Contributors
 
-- Louis SHEY _https://github.com/shloch_
+### 👤 **SHEY Louis CHIA**
+
+- Github: [shloch](https://github.com/shloch)
+- Twitter: [@shloch](https://twitter.com/shloch)
+- Linkedin: [/in/shey-louis-chia](https://www.linkedin.com/in/shey-louis-chia)
+- Email: [](shloch2007@yahoo.fr)
+
+## 👤 **Philip Yirenky**
 - Philip Yirenky \_https://github.com/pwilson77__

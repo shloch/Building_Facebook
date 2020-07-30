@@ -66,3 +66,9 @@ open `http://127.0.0.1:3000` on browser
 
 ## 👤 **Philip Yirenky**
 - Philip Yirenky \_https://github.com/pwilson77__
+
+## Acknowledgements
+- https://getbootstrap.com
+- https://www.heroku.com
+- https://www.railstutorial.org/book
+- https://rubyonrails.org/
